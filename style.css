@@ -148,7 +148,8 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background-image: url("images/Screenshot 2026-02-11 132247.png");
+    background-image: url("hero-bg.png");
+;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
