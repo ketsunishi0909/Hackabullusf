@@ -146,13 +146,17 @@ body {
 /* ---------- HERO ---------- */
 
 .hero {
-    .hero {
-    background: url("images/Screenshot 2026-02-11 132247.png") no-repeat center center;
-    background-size: cover;
-    height: 100vh;
     position: relative;
-
+    height: 100vh;
+    background-image: url("images/Screenshot 2026-02-11 132247.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .hero::before {
     content: '';
@@ -163,15 +167,6 @@ body {
     z-index: 1;
 }
 
-.hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    pointer-events: none;
-}
 
 .hero-content {
     position: relative;
