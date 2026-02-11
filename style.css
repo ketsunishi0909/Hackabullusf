@@ -146,16 +146,12 @@ body {
 /* ---------- HERO ---------- */
 
 .hero {
-    position: relative;
+    .hero {
+    background: url("images/Screenshot 2026-02-11 132247.png") no-repeat center center;
+    background-size: cover;
     height: 100vh;
-    background:
-        linear-gradient(180deg, rgba(12,2,30,0.22), rgba(0,8,20,0.22)),
-        url("images/city.jpg") center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
+    position: relative;
+
 }
 
 .hero::before {
