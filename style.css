@@ -15,10 +15,9 @@
 }
 
 body {
- body {
     margin: 0;
     padding: 0;
-background: url("images/hackabulllanding.png") no-repeat center center fixed;
+    background: url("images/hackbulllanding.png") no-repeat center center fixed;
     background-size: cover;
 }
 
