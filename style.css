@@ -17,9 +17,8 @@
 body {
     font-family: 'Inter', sans-serif;
     color: var(--muted-text);
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(57,255,20,0.06), transparent 10%),
-                linear-gradient(180deg, var(--bg-deep), var(--bg-dark));
-    background-attachment: fixed;
+  background: url("images/hackabulllanding.png") no-repeat center center fixed;
+background-size: cover;
 }
 
 /* ---------- TOP BAR ---------- */
@@ -148,25 +147,13 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background-image: url("hero-bg.png");
-;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* reduced dark overlay so background video is brighter */
-    background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.32));
-    z-index: 1;
-}
+.hero::before 
 
 
 .hero-content {
