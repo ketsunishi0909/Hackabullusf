@@ -104,6 +104,46 @@ body {
     height: auto;
     display: block;
 }
+/* ---------- SOCIAL ICONS LEFT ---------- */
+.social-icons-left {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.social-icons-left a {
+    display: block;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons-left img {
+    width: 35px;
+    height: 35px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(180, 0, 255, 0.3));
+}
+
+.social-icons-left a:hover img {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 15px rgba(180, 0, 255, 0.8));
+}
+
+@media (max-width: 768px) {
+    .social-icons-left {
+        left: 15px;
+        gap: 15px;
+    }
+    
+    .social-icons-left img {
+        width: 28px;
+        height: 28px;
+    }
+}
 
 /* Mobile */
 @media (max-width: 768px) {
