@@ -17,8 +17,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("images/hackbulllanding.png") no-repeat center center fixed;
-    background-size: cover;
+    background: url("images/hackbulllanding.png") no-repeat center top fixed;
+    background-size: contain;
     background-color: #000;
     font-family: 'Inter', sans-serif;
     color: var(--muted-text);
