@@ -259,14 +259,13 @@ button:hover {
 }
 
 .about-inner {
-    max-width: 1100px;
-    margin: 0 0 0 auto; /* changed from 0 auto */
-    text-align: center;
-    padding: 0 80px 0 20px; /* added right padding to pull it in from edge */
+    max-width: 600px;
+    margin: 0 80px 0 auto; /* pushes block to the right */
+    text-align: left; /* aligns text left within the block */
+    padding: 0 20px;
     position: relative;
     z-index: 1;
 }
-
 .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 42px;
