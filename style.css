@@ -17,7 +17,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
+    background-image: url('images/imagebackgroundhackabull.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0a0008;
     font-family: 'Inter', sans-serif;
     color: var(--muted-text);
     min-height: 100vh;
@@ -215,9 +220,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("images/hackbulllanding.png") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 /* GLOW EFFECT */
@@ -251,26 +253,24 @@ button:hover {
     padding: 100px 40px;
     margin: 0;
     max-width: 100%;
-    background: url("images/aboutbg.png") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
     min-height: 100vh;
     position: relative;
 }
 
 .about-inner {
     max-width: 600px;
-    margin: 0 80px 0 auto; /* pushes block to the right */
-    text-align: center; /* aligns text left within the block */
+    margin: 0 80px 0 auto;
+    text-align: center;
     padding: 0 20px;
     position: relative;
     z-index: 1;
 }
+
 .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 42px;
     margin-bottom: 20px;
-    color: #ffffff; /* changed from var(--neon-green) */
+    color: #ffffff;
 }
 
 .about .lead {
@@ -329,9 +329,6 @@ button:hover {
     padding: 100px 40px;
     margin: 0;
     max-width: 100%;
-    background: url("images/tracksbg.png") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
     min-height: 100vh;
     position: relative;
 }
@@ -389,9 +386,6 @@ button:hover {
     padding: 100px 40px;
     margin: 0;
     max-width: 100%;
-    background: url("images/sponsorsbg.png") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
     min-height: 100vh;
     position: relative;
 }
@@ -437,9 +431,6 @@ button:hover {
     padding: 100px 40px;
     margin: 0;
     max-width: 100%;
-    background: url("images/faqsbg.png") no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
     min-height: 100vh;
     position: relative;
 }
