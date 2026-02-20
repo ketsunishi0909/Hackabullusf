@@ -225,9 +225,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-end;        /* push content toward bottom of hero */
+    justify-content: center;
     padding-left: 8vw;
-    padding-bottom: 80px;             /* sit near bottom like in the screenshot */
+    padding-top: 60px;                /* offset for fixed top bar */
     gap: 8px;
     height: 100%;
 }
