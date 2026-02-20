@@ -222,23 +222,23 @@ body {
 }
 
 .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
     padding-left: 8vw;
     padding-top: 60px;
-    gap: 4px;                         /* tight spacing between all three items */
-    height: 100%;
 }
 
 .hero-logo {
-    width: min(713px, 80vw);
+    width: min(713px, 75vw);
     height: auto;
+    position: absolute;
+    top: 50%;
+    left: 8vw;
+    transform: translateY(-60%);      /* shift up so logo+text group is centered */
     filter: drop-shadow(0 0 30px rgba(255, 230, 0, 0.5))
             drop-shadow(0 0 60px rgba(200, 60, 255, 0.3));
     animation: logoGlow 3s ease-in-out infinite alternate;
-    margin-bottom: 2px;
 }
 
 @keyframes logoGlow {
@@ -254,29 +254,38 @@ body {
 
 .hero-sub {
     font-family: 'HK Modular', 'Orbitron', sans-serif;
-    font-size: clamp(14px, 2.5vw, 22px);
+    font-size: clamp(14px, 2.2vw, 22px);
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 4px;
     text-shadow: 0 0 12px rgba(255,255,255,0.6);
-    margin-top: -40px;                /* close the gap from remaining logo bottom padding */
+    position: absolute;
+    top: calc(50% + 20px);           /* just below where logo ends */
+    left: 8vw;
 }
 
 .hero-date {
     font-family: 'HK Modular', 'Orbitron', sans-serif;
-    font-size: clamp(13px, 2vw, 18px);
+    font-size: clamp(13px, 1.8vw, 18px);
     font-weight: 700;
-    color: #c44dff;                   /* purple matching "VII" in the logo */
+    color: #c44dff;
     letter-spacing: 5px;
     text-shadow: 0 0 14px rgba(196,77,255,0.8);
+    position: absolute;
+    top: calc(50% + 55px);           /* below the subtitle */
+    left: 8vw;
 }
 
 @media (max-width: 768px) {
-    .hero-content {
-        align-items: center;
-        padding-left: 0;
-        padding-bottom: 60px;
+    .hero-logo {
+        left: 50%;
+        transform: translate(-50%, -60%);
+    }
+    .hero-sub, .hero-date {
+        left: 50%;
+        transform: translateX(-50%);
         text-align: center;
+        width: 100%;
     }
 }
 
@@ -695,6 +704,10 @@ button:hover {
 }
 
 @media (max-width: 360px) {
+    .mlh img {
+        height: 56px;
+    }
+}
     .mlh img {
         height: 56px;
     }
