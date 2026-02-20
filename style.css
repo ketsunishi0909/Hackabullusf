@@ -13,21 +13,16 @@
     --neon-purple: #6ef2b8;
     --glass: rgba(255,255,255,0.03);
 }
-
+/* body */
 body {
-    margin: 0;
-    padding: 0;
     background-image: url('images/imagebackgroundhackabull.png');
-    background-size: cover;
+    background-size: 100% auto;          /* ← stretches full width, natural height */
     background-position: top center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #0a0008;
-    font-family: 'Inter', sans-serif;
-    color: var(--muted-text);
-    min-height: 100vh;
+    background-repeat: no-repeat;        /* keep this so it doesn't tile */
+    /* remove background-attachment: fixed entirely */
+    background-color: #0a0008;           /* fallback once image ends */
+    ...
 }
-
 /* ---------- TOP BAR ---------- */
 .top-bar {
     position: fixed;
