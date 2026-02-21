@@ -653,3 +653,6 @@ button:hover {
 @media (max-width: 360px) {
     .mlh img { height: 56px; }
 }
+.carousel-title, .carousel-desc {
+    transition: opacity 0.3s ease;
+}
