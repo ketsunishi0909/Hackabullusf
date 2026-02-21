@@ -420,6 +420,7 @@ button:hover {
 .gallery {
     padding: 100px 40px;
     margin: 0;
+    margin-left: 20%;
     max-width: 100%;
     min-height: 100vh;
     position: relative;
