@@ -50,8 +50,8 @@ body {
 }
 
 .social-icons-top img {
-    width: 63px;
-    height: 63px;
+    width: 72px;
+    height: 72px;
     transition: transform 0.35s ease, filter 0.35s ease;
     filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
@@ -174,6 +174,8 @@ body {
     height: auto;
     display: block;
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    margin-top: -10px;
+    margin-right: 20px;
 }
 
 /* Mobile top bar */
@@ -202,7 +204,7 @@ body {
 /* GLOW EFFECT */
 .glow {
     text-shadow:
-        0 0 6px rgba(57,255,20,0.95),
+        0 0 6px rgba(153, 194, 224, 0.95),
         0 0 18px rgba(0,240,255,0.65),
         0 0 36px rgba(110,242,184,0.45);
 }
@@ -228,14 +230,14 @@ button:hover {
 /* ---------- ABOUT ---------- */
 .about {
     padding: 340px 40px 100px;
-    margin: 0;
+    margin-top: 10%;
     max-width: 100%;
     min-height: 100vh;
     position: relative;
 }
 
 .about-inner {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 80px 0 auto;
     text-align: center;
     padding: 120px 20px 0;
@@ -251,6 +253,7 @@ button:hover {
 }
 
 .about .lead {
+    font-family: 'HK Modular', 'Orbitron', sans-serif;
     color: rgba(230,246,255,0.85);
     margin-bottom: 40px;
     font-size: 18px;
@@ -337,6 +340,8 @@ button:hover {
     letter-spacing: 6px;
     text-transform: uppercase;
     text-shadow: 0 0 20px rgba(255,255,255,0.4);
+    margin-left: -200%;
+    margin-top: -15%;
 }
 
 /* Carousel wrapper — perspective lives here */
@@ -346,7 +351,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    padding-left: 80px;
+    padding-left: 250px;
     perspective: 1000px;
 }
 
@@ -420,7 +425,7 @@ button:hover {
 .gallery {
     padding: 100px 40px;
     margin: 0;
-    margin-left: 20%;
+    margin-left: 40%;
     max-width: 100%;
     min-height: 100vh;
     position: relative;
@@ -619,7 +624,7 @@ button:hover {
 
 /* ---------- FAQ ---------- */
 .faq {
-    padding: 100px 40px;
+    padding: 200px 40px;
     margin: 0;
     max-width: 100%;
     min-height: 100vh;
