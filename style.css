@@ -178,33 +178,16 @@ body {
 
 /* Mobile top bar */
 @media (max-width: 768px) {
-    .top-bar {
-        padding: 15px 20px;
-    }
-    .nav-pill {
-        gap: 20px;
-        font-size: 12px;
-    }
-    .mlh img {
-        width: 80px;
-    }
-    .social-icons-top {
-        gap: 20px;
-    }
-    .social-icons-top img {
-        width: 38px;
-        height: 38px;
-    }
+    .top-bar { padding: 15px 20px; }
+    .nav-pill { gap: 20px; font-size: 12px; }
+    .mlh img { width: 80px; }
+    .social-icons-top { gap: 20px; }
+    .social-icons-top img { width: 38px; height: 38px; }
 }
 
 @media (max-width: 480px) {
-    .nav-pill {
-        gap: 15px;
-    }
-    .nav-pill a {
-        font-size: 11px;
-        letter-spacing: 1px;
-    }
+    .nav-pill { gap: 15px; }
+    .nav-pill a { font-size: 11px; letter-spacing: 1px; }
 }
 
 /* ---------- HERO ---------- */
@@ -318,7 +301,6 @@ button:hover {
 }
 
 /* ---------- TRACKS ---------- */
-/* ---------- TRACKS ---------- */
 .tracks {
     padding: 200px 40px 100px;
     margin: 0;
@@ -339,10 +321,15 @@ button:hover {
     width: 100%;
     position: relative;
     z-index: 1;
+    padding-left: 2vw;
+    padding-right: 4vw;
 }
 
-.tracks-left { flex: 0 0 auto; }
+.tracks-left {
+    flex: 0 0 auto;
+}
 
+/* NO underline, NO border-bottom */
 .tracks-title {
     font-family: 'HK Modular', 'Orbitron', sans-serif;
     font-size: clamp(36px, 5vw, 64px);
@@ -350,8 +337,6 @@ button:hover {
     color: #ffffff;
     letter-spacing: 6px;
     text-transform: uppercase;
-    border-bottom: 3px solid #ffffff;
-    padding-bottom: 8px;
     text-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
@@ -361,6 +346,8 @@ button:hover {
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    margin-left: auto;
+    padding-right: 40px;
 }
 
 .carousel {
@@ -368,15 +355,7 @@ button:hover {
     width: 340px;
     height: 340px;
     transform-style: preserve-3d;
-    animation: autoRotate 12s linear infinite;
     cursor: pointer;
-}
-
-.carousel:hover { animation-play-state: paused; }
-
-@keyframes autoRotate {
-    from { transform: rotateY(0deg); }
-    to   { transform: rotateY(360deg); }
 }
 
 .carousel-item {
@@ -396,7 +375,6 @@ button:hover {
     backface-visibility: visible;
 }
 
-/* position each item evenly around the circle */
 .carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(180px); }
 .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(180px); }
 .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(180px); }
@@ -416,7 +394,6 @@ button:hover {
 .carousel-info {
     text-align: center;
     min-height: 80px;
-    transition: opacity 0.3s ease;
 }
 
 .carousel-title {
@@ -427,6 +404,7 @@ button:hover {
     letter-spacing: 2px;
     margin-bottom: 10px;
     text-shadow: 0 0 12px rgba(196,77,255,0.6);
+    transition: opacity 0.3s ease;
 }
 
 .carousel-desc {
@@ -435,26 +413,7 @@ button:hover {
     color: rgba(230,255,245,0.75);
     max-width: 360px;
     line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .tracks-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-    .carousel {
-        width: 260px;
-        height: 260px;
-    }
-    .carousel-item {
-        width: 100px;
-        height: 100px;
-        margin: -50px 0 0 -50px;
-    }
-    .carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(140px); }
-    .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(140px); }
-    .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(140px); }
-    .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(140px); }
+    transition: opacity 0.3s ease;
 }
 
 /* ---------- SPONSORS ---------- */
@@ -621,15 +580,28 @@ button:hover {
     .tracks-inner {
         flex-direction: column;
         text-align: center;
+        padding-left: 0;
+        padding-right: 0;
     }
-    .tracks-grid {
-        max-width: 100%;
-        width: 100%;
+    .carousel-container {
+        margin-left: 0;
+        padding-right: 0;
     }
+    .carousel {
+        width: 260px;
+        height: 260px;
+    }
+    .carousel-item {
+        width: 100px;
+        height: 100px;
+        margin: -50px 0 0 -50px;
+    }
+    .carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(140px); }
+    .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(140px); }
+    .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(140px); }
+    .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(140px); }
 
-    .sponsors-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
@@ -652,7 +624,4 @@ button:hover {
 
 @media (max-width: 360px) {
     .mlh img { height: 56px; }
-}
-.carousel-title, .carousel-desc {
-    transition: opacity 0.3s ease;
 }
