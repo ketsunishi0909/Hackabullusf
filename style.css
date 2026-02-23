@@ -785,3 +785,7 @@ button:hover {
 @media (max-width: 360px) {
     .mlh img { height: 56px; }
 }
+.hero-date {
+    color: #ff2d2d;
+    text-shadow: 0 0 14px rgba(255,45,45,0.8);
+}
