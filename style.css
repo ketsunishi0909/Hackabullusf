@@ -764,10 +764,10 @@ button:hover {
 }
 /* ---------- FAQ ---------- */
 .faq {
-    padding: 45px 40px;
+    padding: 60px 40px 100px;
     margin: 0;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
 }
 
