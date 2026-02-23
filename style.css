@@ -880,10 +880,9 @@ button:hover {
     .mlh img { height: 56px; }
 }
 
-/* =========================
+/*
    MOBILE OVERRIDE (FINAL)
-   Keeps your CURRENT 768px look, but makes hero positioning adaptive on smaller widths
-   ========================= */
+
 
 /* ---------- GLOBAL SAFETY / FLUID BASE ---------- */
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
