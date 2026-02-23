@@ -230,7 +230,7 @@ button:hover {
 /* ---------- ABOUT ---------- */
 .about {
     padding: 340px 40px 100px;
-    margin-top: 10%;
+    margin-top: -2%;
     max-width: 100%;
     min-height: 100vh;
     position: relative;
