@@ -576,7 +576,7 @@ button:hover {
     padding: 100px 40px;
     margin: 0;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     position: relative;
     overflow: hidden;
 }
