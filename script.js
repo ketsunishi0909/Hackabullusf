@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
@@ -94,5 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     slideInterval = setInterval(nextSlide, 3500);
+
+    // Sponsor scroll-in animation
+    const sponsorCards = document.querySelectorAll('.sponsor-card');
+    const sponsorObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    sponsorCards.forEach(card => sponsorObserver.observe(card));
 
 }); // ← this is the closing of DOMContentLoaded
