@@ -19,7 +19,7 @@
     --sub-y:   calc(-220px - 29.41vw);     /* 768:-350px, 360:-230px */
 
     --shpe-y:  calc(-50px - 10.35vw);       
-    /*--shpe-s: clamp(2.2, calc(6.6 + 0.007 * 100vw), 4.2);*/
+    
 }
 
 
@@ -338,7 +338,7 @@ body {
   filter: drop-shadow(0 6px 14px rgba(57,255,20,0.10));
 
   /* BIGGER + MOVE UP without reflow */
-  transform: translateY(-200px) scale(6.6);
+  transform: translateX(-205px) translateY(-200px) scale(6.6);
   transform-origin: center;
 }
 /* GLOW EFFECT */
@@ -366,6 +366,130 @@ button:hover {
     background: linear-gradient(90deg, rgba(57,255,20,0.18), rgba(0,240,255,0.12));
     box-shadow: 0 6px 30px rgba(110,242,184,0.10), 0 0 18px rgba(0,240,255,0.06);
 }
+
+
+
+
+/* ----------------- WORK ZONEEEEEEEE ----------------- */
+/* HERO APPLY CTA (GOLD VERSION + DOTTED ARROW) */
+
+.hero-apply-wrap{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  position: relative;
+  z-index: 10;
+
+  --heroApplyX: 100px;
+  --heroApplyY: -400px;
+
+  transform: translate(var(--heroApplyX), var(--heroApplyY));
+}
+
+/* optional press scale */
+.hero-apply-wrap.is-pressed{
+  transform: translate(var(--heroApplyX), var(--heroApplyY)) scale(0.96);
+}
+
+/* BIG TEXT BUTTON */
+.hero-apply-btn.Btn-Container{
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  padding: 16px 10px;
+  cursor: pointer;
+  text-decoration: none;
+
+  font-family: 'HK Modular', 'Orbitron', sans-serif;
+  font-weight: 800;
+
+  font-size: 50px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  /* ✅ GOLD TEXT */
+  color: #ffec4e;
+
+  /* ✅ Softer gold resting shine */
+  text-shadow:
+    0 0 8px rgba(255,236,78,0.55),
+    0 0 18px rgba(255,236,78,0.35);
+
+  transition:
+    transform 0.25s ease,
+    text-shadow 0.35s ease;
+}
+
+.hero-apply-btn .text{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* arrow container */
+.hero-apply-btn .icon-Container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* arrow automatically matches text color */
+.hero-apply-btn .arrow{
+  color: currentColor;
+}
+
+/* Hover = brighter gold + lift */
+.hero-apply-btn:hover{
+  transform: translateY(-4px);
+
+  text-shadow:
+    0 0 18px rgba(255,236,78,0.9),
+    0 0 40px rgba(255,236,78,0.8),
+    0 0 80px rgba(255,236,78,0.6);
+}
+
+/* reveal arrow */
+.hero-apply-btn:hover .icon-Container{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* animated dotted arrow */
+.hero-apply-btn:hover .arrow{
+  animation: dottedArrow 0.9s ease-in-out infinite;
+}
+
+@keyframes dottedArrow{
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(12px);
+    opacity: 1;
+  }
+}
+
+.hero-apply-btn:focus-visible{
+  outline: none;
+}
+
+/* ----------------- END WORK ZONE ----------------- */
 
 /* ---------- ABOUT ---------- */
 .about {
@@ -422,11 +546,10 @@ button:hover {
 }
 
 .pill-btn:hover {
-    background: #ff2d78;
-    box-shadow: 0 0 20px rgba(255, 45, 120, 0.5);
-    transform: translateY(-2px);
+    background: transparent;   /* prevents pink fill */
+    box-shadow: none;          /* removes glow */
+    transform: translateY(-2px); /* keeps subtle lift (optional) */
 }
-
 .faq-link {
     margin-top: 20px;
     font-size: 15px;

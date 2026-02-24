@@ -108,3 +108,5 @@ document.addEventListener('DOMContentLoaded', function() {
     sponsorCards.forEach(card => sponsorObserver.observe(card));
 
 }); // ← this is the closing of DOMContentLoaded
+
+
