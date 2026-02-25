@@ -12,47 +12,37 @@
     --neon-cyan: #00f0ff;
     --neon-purple: #6ef2b8;
     --glass: rgba(255,255,255,0.03);
-
-    --logo-x:  calc(16.47px - 7.35vw);        /* 768:-40px, 360:-10px */
-    --logo-y:  calc(-80.24px - 17.16vw);      /* 768:-150px, 360:-80px */
-
-    --sub-y:   calc(-220px - 29.41vw);     /* 768:-350px, 360:-230px */
-
-    --shpe-y:  calc(-50px - 10.35vw);       
-    
+    --header-h: 96px;
+    --page-pad: clamp(14px, 3vw, 28px);
 }
 
-
-
-/* AVOID MOBILE HORIZONTAL SCROLL*/
-html,body{
-    width:100%;
-    overflow-x:hidden;
+/* ── GLOBAL ── */
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+:target { scroll-margin-top: calc(var(--header-h) + 18px); }
+img, video { max-width: 100%; height: auto; display: block; }
+a, button { touch-action: manipulation; }
 
 body {
     margin: 0;
     padding: 0;
-
     background-image: url('images/imagebackgroundhackabull.png');
-
-    /* keep your look */
-    background-size: 100% auto;
-    background-position: center -250px;
-
-    /* THIS is the key: keep painting as the page gets taller */
-    background-repeat: repeat-y;
-
-
-
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-color: #0a0008;
     font-family: 'Inter', sans-serif;
     color: var(--muted-text);
-
     min-height: 100vh;
 }
 
-/* ---------- TOP BAR ---------- */
+/* ── TOP BAR ── */
 .top-bar {
     position: fixed;
     top: 0;
@@ -78,12 +68,12 @@ body {
     width: 72px;
     height: 72px;
     transition: transform 0.35s ease, filter 0.35s ease;
-    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.5));
 }
 
 .social-icons-top a:hover img {
     transform: scale(1.2) translateY(-2px);
-    filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255, 255, 255, 1)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.6));
+    filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255,255,255,1)) drop-shadow(0 0 40px rgba(255,255,255,0.6));
 }
 
 /* NAV PILL */
@@ -108,8 +98,7 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.35s ease;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8),
-                 0 0 30px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5);
     font-family: 'HK Modular', 'Orbitron', sans-serif;
     position: relative;
 }
@@ -129,9 +118,7 @@ body {
 
 .nav-pill a:hover {
     color: #ffffff;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 1),
-                 0 0 40px rgba(255, 255, 255, 0.8),
-                 0 0 60px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 18px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.8), 0 0 60px rgba(255,255,255,0.4);
     letter-spacing: 2.5px;
     transform: translateY(-2px);
 }
@@ -147,8 +134,7 @@ body {
     padding: 0;
     color: #ffffff !important;
     font-weight: 800 !important;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8),
-                 0 0 30px rgba(255, 255, 255, 0.5) !important;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5) !important;
     box-shadow: none;
     transition: all 0.35s ease !important;
     position: relative;
@@ -170,9 +156,7 @@ body {
 .apply-btn:hover {
     background: transparent;
     box-shadow: none;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 1),
-                 0 0 40px rgba(255, 255, 255, 0.8),
-                 0 0 60px rgba(255, 255, 255, 0.4) !important;
+    text-shadow: 0 0 18px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.8), 0 0 60px rgba(255,255,255,0.4) !important;
     letter-spacing: 2.5px !important;
     transform: translateY(-2px);
 }
@@ -190,9 +174,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.mlh:hover {
-    transform: scale(1.05);
-}
+.mlh:hover { transform: scale(1.05); }
 
 .mlh img {
     width: 120px;
@@ -203,157 +185,123 @@ body {
     margin-right: 20px;
 }
 
-
-
-
-/* ---------- HERO ---------- */
+/* ── HERO ── */
 .hero {
     position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-}
-/* Ensure hero centers content ) */
-.hero{
-  justify-content: center;
-  text-align: center;
+    justify-content: center;
+    text-align: center;
 }
 
-/* Keep everything stacked & centered */
-.hero-content{
-  position: relative;
-  z-index: 3;
-
-  background: transparent;
-  padding: 22px 30px;
-  border-radius: 0;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
-
-  max-width: 95%;
+.hero-content {
+    position: relative;
+    z-index: 3;
+    background: transparent;
+    padding: 22px 30px;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    max-width: 95%;
 }
 
-/* Prevent extra spacing around the logo line */
-.hero-logo-wrap{
-  line-height: 1;
-  margin: 0;
+.hero-logo-wrap {
+    line-height: 1;
+    margin: 0;
 }
 
-/*SITE LOGO*/
-.hero-content .site-logo{
-  max-height: 1200px;
-  max-width: 56vw;
-  width: auto;
-
-  display: block;
-  margin: 0 auto 12px;
-  object-fit: contain;
-
-  filter: drop-shadow(0 6px 14px rgba(57,255,20,0.10));
-
-  /* MOVE CONTROL */
-  transform: translateX(-350px) translateY(60px);
+/* hero-pack: wrapper that holds logo + subtitles as one unit */
+.hero-pack {
+    display: inline-block;
 }
 
-/* ----------------- SHINY TEXT CLASSES ----------------- */
-.text-shine-white{
-  color: #ffffff;
-
-  font-family: 'HK Modular','Orbitron',sans-serif;
-  font-weight: 900;
-  letter-spacing: -0.6px;
-  text-transform: uppercase;
-
-  text-shadow:
-    0 0 12px rgba(255,255,255,0.80),
-    0 0 30px rgba(255,255,255,0.50);
-
-  transition: text-shadow 0.35s ease;
+/* SITE LOGO */
+.hero-content .site-logo {
+    max-height: 1200px;
+    max-width: 56vw;
+    width: auto;
+    display: block;
+    margin: 0 auto 12px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 14px rgba(57,255,20,0.10));
+    transform: translateX(-300px) translateY(0px);
 }
 
-/* Red variant (date) */
-.text-shine-red{
-  color: #f7444c;
-  text-shadow:
-    0 0 12px rgba(247,68,76,0.80),
-    0 0 30px rgba(247,68,76,0.50);
+/* SHINY TEXT */
+.text-shine-white {
+    color: #ffffff;
+    font-family: 'HK Modular', 'Orbitron', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.6px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(255,255,255,0.80), 0 0 30px rgba(255,255,255,0.50);
+    transition: text-shadow 0.35s ease;
 }
 
-/* Optional hover enhancement  */
-.text-shine-white:hover{
-  text-shadow:
-    0 0 18px rgba(255,255,255,1),
-    0 0 40px rgba(255,255,255,0.80),
-    0 0 60px rgba(255,255,255,0.40);
+.text-shine-red {
+    color: #f7444c;
+    text-shadow: 0 0 12px rgba(247,68,76,0.80), 0 0 30px rgba(247,68,76,0.50);
 }
 
-/* Subtitle 1 and 2 layout */
-.hero-tagline{
-  margin-top: 18px;
-  font-size: clamp(18px, 2.2vw, 32px);
-  text-align: center;
-  opacity: 0.95;
+.text-shine-white:hover {
+    text-shadow: 0 0 18px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.80), 0 0 60px rgba(255,255,255,0.40);
 }
 
-/* Tighter spacing for the date line */
-.hero-tagline.text-shine-red{
-  margin-top: 6px;
-}
-/* INDIVIDUAL CONTROLS  */
-.hero-subtitle-1{
-  font-size: clamp(32px, 2.2vw, 120px);
-  transform: translateX(-485px) translateY(-430px);
-  margin-top: 18px;
+.hero-tagline {
+    margin-top: 18px;
+    font-size: clamp(18px, 2.2vw, 32px);
+    text-align: center;
+    opacity: 0.95;
 }
 
-.hero-subtitle-2{
-  /* size */
-  font-size: clamp(32px, 2vw, 120px);
+.hero-tagline.text-shine-red { margin-top: 6px; }
 
-  /* move */
-  transform: translateX(-630px) translateY(-445px);
+/* SUBTITLES wrapper + individual offsets (desktop default) */
+.hero-subtitles {
+    transform: translateX(-405px) translateY(-390px);
+}
 
-  /* spacing */
-  margin-top: 6px;
+.hero-subtitle-1 {
+    transform: translateX(0px) translateY(0px);
+}
+
+.hero-subtitle-2 {
+    transform: translateX(-103px) translateY(-15px);
 }
 
 /* SHPE LOGO */
-
-.shpe-logo-link{
-  display: inline-block;
-  margin-top: 14px; /* layout spacing stays stable */
+.shpe-logo-link {
+    display: inline-block;
+    margin-top: 14px;
 }
 
-.shpe-logo{
-  height: 70px;     /* KEEP THIS the same so layout doesn't change */
-  width: auto;
-  display: block;
-  margin: 0 auto;
-
-  filter: drop-shadow(0 6px 14px rgba(57,255,20,0.10));
-
-  /* BIGGER + MOVE UP without reflow */
-  transform: translateX(-205px) translateY(-200px) scale(6.6);
-  transform-origin: center;
+.shpe-logo {
+    height: 70px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 6px 14px rgba(57,255,20,0.10));
+    transform: translateX(50px) translateY(-100px) scale(6.6);
+    transform-origin: center;
 }
-/* GLOW EFFECT */
+
+/* GLOW */
 .glow {
     text-shadow:
-        0 0 6px rgba(153, 194, 224, 0.95),
+        0 0 6px rgba(153,194,224,0.95),
         0 0 18px rgba(0,240,255,0.65),
         0 0 36px rgba(110,242,184,0.45);
 }
 
-/* BUTTON base */
+/* ── BUTTONS ── */
 button {
     padding: 15px 40px;
     font-size: 16px;
     border-radius: 30px;
-    border: none;
-    background: linear-gradient(90deg, rgba(57,255,20,0.10), rgba(0,240,255,0.06));
     border: 1px solid rgba(57,255,20,0.14);
+    background: linear-gradient(90deg, rgba(57,255,20,0.10), rgba(0,240,255,0.06));
     color: var(--muted-text);
     cursor: pointer;
     transition: background 0.3s;
@@ -364,14 +312,7 @@ button:hover {
     box-shadow: 0 6px 30px rgba(110,242,184,0.10), 0 0 18px rgba(0,240,255,0.06);
 }
 
-
-
-
-/* ----------------- WORK ZONEEEEEEEE ----------------- */
-
-/* ----------------- END WORK ZONE ----------------- */
-
-/* ---------- ABOUT ---------- */
+/* ── ABOUT ── */
 .about {
     padding: 340px 40px 100px;
     margin-top: -2%;
@@ -426,10 +367,11 @@ button:hover {
 }
 
 .pill-btn:hover {
-    background: transparent;   /* prevents pink fill */
-    box-shadow: none;          /* removes glow */
-    transform: translateY(-2px); /* keeps subtle lift (optional) */
+    background: transparent;
+    box-shadow: none;
+    transform: translateY(-2px);
 }
+
 .faq-link {
     margin-top: 20px;
     font-size: 15px;
@@ -442,11 +384,9 @@ button:hover {
     font-weight: 700;
 }
 
-.faq-link a:hover {
-    text-shadow: 0 0 10px rgba(255, 45, 120, 0.8);
-}
+.faq-link a:hover { text-shadow: 0 0 10px rgba(255,45,120,0.8); }
 
-/* ---------- TRACKS ---------- */
+/* ── TRACKS ── */
 .tracks {
     padding: 200px 40px 100px;
     margin: 0;
@@ -458,21 +398,33 @@ button:hover {
 }
 
 .tracks-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 60px;
+    justify-content: center;
+    gap: clamp(40px, 12vw, 180px);
     width: 100%;
     position: relative;
     z-index: 1;
-    padding-left: 2vw;
-    padding-right: 4vw;
 }
 
 .tracks-left {
     flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
+}
+
+.track-title {
+    text-align: left !important;
+    margin-bottom: 0;
+    align-self: center;
+    margin-left: clamp(0px, 4vw, 80px);
+    margin-top: clamp(-80px, -5vw, 0px);
 }
 
 .tracks-title {
@@ -483,36 +435,33 @@ button:hover {
     letter-spacing: 6px;
     text-transform: uppercase;
     text-shadow: 0 0 20px rgba(255,255,255,0.4);
-    margin-left: -200%;
-    margin-top: -15%;
 }
 
-/* Carousel wrapper — perspective lives here */
 .carousel-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding-left: 650px;
-    perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  perspective: 1000px;
 }
 
 .carousel {
     position: relative;
-    width: 420px;
-    height: 420px;
+    width: 572px;
+    height: 572px;
     transform-style: preserve-3d;
     cursor: pointer;
 }
 
 .carousel-item {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 198px;
+    height: 198px;
     top: 50%;
     left: 50%;
-    margin: -75px 0 0 -75px;
+    margin: -99px 0 0 -99px;
     border-radius: 16px;
     background: rgba(10,6,20,0.6);
     border: 1px solid rgba(255,255,255,0.1);
@@ -523,30 +472,23 @@ button:hover {
     backface-visibility: visible;
 }
 
-.carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(220px); }
-.carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(220px); }
-.carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(220px); }
-.carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(220px); }
+.carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(297px); }
+.carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(297px); }
+.carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(297px); }
+.carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(297px); }
 
-.carousel-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-}
+.carousel-item img { width: 132px; height: 132px; object-fit: contain; }
 
 .carousel-item.active {
     border-color: #c44dff;
     box-shadow: 0 0 30px rgba(196,77,255,0.5), 0 0 60px rgba(196,77,255,0.2);
 }
 
-.carousel-info {
-    text-align: center;
-    min-height: 80px;
-}
+.carousel-info { text-align: center; min-height: 80px; }
 
 .carousel-title {
     font-family: 'HK Modular', 'Orbitron', sans-serif;
-    font-size: 22px;
+    font-size: 29px;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 2px;
@@ -557,13 +499,14 @@ button:hover {
 
 .carousel-desc {
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
+    font-size: 19px;
     color: rgba(230,255,245,0.75);
-    max-width: 360px;
+    max-width: 400px;
     line-height: 1.6;
     transition: opacity 0.3s ease;
 }
-/* ---------- GALLERY ---------- */
+
+/* ── GALLERY ── */
 .gallery {
     padding: 100px 40px;
     margin: 0;
@@ -588,16 +531,6 @@ button:hover {
     text-align: center;
 }
 
-.gallery-title {
-    font-family: 'HK Modular', 'Orbitron', sans-serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(255,255,255,0.4);
-}
-
 .gallery-sub {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -619,19 +552,17 @@ button:hover {
     border-radius: 4px;
     overflow: hidden;
     box-shadow:
-        0 0 20px rgba(255, 230, 0, 0.8),
-        0 0 40px rgba(255, 230, 0, 0.5),
-        0 0 80px rgba(255, 230, 0, 0.3),
-        inset 0 0 20px rgba(255, 230, 0, 0.1);
-    border: 2px solid rgba(255, 230, 0, 0.9);
+        0 0 20px rgba(255,230,0,0.8),
+        0 0 40px rgba(255,230,0,0.5),
+        0 0 80px rgba(255,230,0,0.3),
+        inset 0 0 20px rgba(255,230,0,0.1);
+    border: 2px solid rgba(255,230,0,0.9);
 }
 
 .slide {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.6s ease;
@@ -698,8 +629,7 @@ button:hover {
     text-align: center;
 }
 
-
-/* ---------- SPONSORS ---------- */
+/* ── SPONSORS ── */
 .sponsors {
     padding: 100px 40px;
     margin: 0;
@@ -737,7 +667,6 @@ button:hover {
     margin-right: auto;
 }
 
-/* Scroll-in animation */
 .sponsor-card {
     background: rgba(10,6,20,0.24);
     padding: 28px;
@@ -757,17 +686,10 @@ button:hover {
 }
 
 @keyframes fadeSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Stagger delays */
 .sponsor-card:nth-child(1) { animation-delay: 0.0s; }
 .sponsor-card:nth-child(2) { animation-delay: 0.1s; }
 .sponsor-card:nth-child(3) { animation-delay: 0.2s; }
@@ -776,42 +698,13 @@ button:hover {
 .sponsor-card:nth-child(6) { animation-delay: 0.5s; }
 .sponsor-card:nth-child(7) { animation-delay: 0.6s; }
 
-/* Hover glow per card */
-.sponsor-card:nth-child(1):hover { /* MLH */
-    border-color: rgba(255, 50, 50, 0.6);
-    box-shadow: 0 0 25px rgba(255, 50, 50, 0.3), 0 0 50px rgba(255, 50, 50, 0.1);
-    transform: translateY(-4px);
-}
-.sponsor-card:nth-child(2):hover { /* Microsoft */
-    border-color: rgba(0, 120, 212, 0.6);
-    box-shadow: 0 0 25px rgba(0, 120, 212, 0.3), 0 0 50px rgba(0, 120, 212, 0.1);
-    transform: translateY(-4px);
-}
-.sponsor-card:nth-child(3):hover { /* Velera */
-    border-color: rgba(130, 80, 255, 0.6);
-    box-shadow: 0 0 25px rgba(130, 80, 255, 0.3), 0 0 50px rgba(130, 80, 255, 0.1);
-    transform: translateY(-4px);
-}
-.sponsor-card:nth-child(4):hover { /* Pure Button */
-    border-color: rgba(255, 200, 0, 0.6);
-    box-shadow: 0 0 25px rgba(255, 200, 0, 0.3), 0 0 50px rgba(255, 200, 0, 0.1);
-    transform: translateY(-4px);
-}
-.sponsor-card:nth-child(5):hover { /* Robobulls */
-    border-color: rgba(0, 220, 100, 0.6);
-    box-shadow: 0 0 25px rgba(0, 220, 100, 0.3), 0 0 50px rgba(0, 220, 100, 0.1);
-    transform: translateY(-4px);
-}
-.sponsor-card:nth-child(6):hover { /* SASE */
-    border-color: rgba(0, 180, 255, 0.6);
-    box-shadow: 0 0 25px rgba(0, 180, 255, 0.3), 0 0 50px rgba(0, 180, 255, 0.1);
-    transform: translateY(-4px);
-}
-.sponsor-card:nth-child(7):hover { /* WICSE */
-    border-color: rgba(255, 100, 200, 0.6);
-    box-shadow: 0 0 25px rgba(255, 100, 200, 0.3), 0 0 50px rgba(255, 100, 200, 0.1);
-    transform: translateY(-4px);
-}
+.sponsor-card:nth-child(1):hover { border-color: rgba(255,50,50,0.6);   box-shadow: 0 0 25px rgba(255,50,50,0.3),   0 0 50px rgba(255,50,50,0.1);   transform: translateY(-4px); }
+.sponsor-card:nth-child(2):hover { border-color: rgba(0,120,212,0.6);   box-shadow: 0 0 25px rgba(0,120,212,0.3),   0 0 50px rgba(0,120,212,0.1);   transform: translateY(-4px); }
+.sponsor-card:nth-child(3):hover { border-color: rgba(130,80,255,0.6);  box-shadow: 0 0 25px rgba(130,80,255,0.3),  0 0 50px rgba(130,80,255,0.1);  transform: translateY(-4px); }
+.sponsor-card:nth-child(4):hover { border-color: rgba(255,200,0,0.6);   box-shadow: 0 0 25px rgba(255,200,0,0.3),   0 0 50px rgba(255,200,0,0.1);   transform: translateY(-4px); }
+.sponsor-card:nth-child(5):hover { border-color: rgba(0,220,100,0.6);   box-shadow: 0 0 25px rgba(0,220,100,0.3),   0 0 50px rgba(0,220,100,0.1);   transform: translateY(-4px); }
+.sponsor-card:nth-child(6):hover { border-color: rgba(0,180,255,0.6);   box-shadow: 0 0 25px rgba(0,180,255,0.3),   0 0 50px rgba(0,180,255,0.1);   transform: translateY(-4px); }
+.sponsor-card:nth-child(7):hover { border-color: rgba(255,100,200,0.6); box-shadow: 0 0 25px rgba(255,100,200,0.3), 0 0 50px rgba(255,100,200,0.1); transform: translateY(-4px); }
 
 .sponsor-card img {
     max-width: 100%;
@@ -821,25 +714,11 @@ button:hover {
     transition: transform 0.3s ease;
 }
 
-/* Make only Robobulls image bigger without changing card size */
-.sponsor-card:nth-child(5) img {
-    transform: scale(1.25);
-}
+.sponsor-card:nth-child(5) img          { transform: scale(1.25); }
+.sponsor-card:nth-child(5):hover img    { transform: scale(1.35); }
+.sponsor-card:hover img                 { transform: scale(1.08); }
 
-/* Robobulls hover override */
-.sponsor-card:nth-child(5):hover img {
-    transform: scale(1.35);
-}
-
-.sponsor-card:nth-child(5) img {
-    transform: scale(1.25);
-}
-
-.sponsor-card:hover img {
-    transform: scale(1.08);
-}
-
-/* Marquee ticker at bottom */
+/* Marquee ticker */
 .sponsors-ticker {
     margin-top: 60px;
     overflow: hidden;
@@ -860,15 +739,8 @@ button:hover {
     z-index: 2;
 }
 
-.sponsors-ticker::before {
-    left: 0;
-    background: linear-gradient(90deg, #0a0008, transparent);
-}
-
-.sponsors-ticker::after {
-    right: 0;
-    background: linear-gradient(-90deg, #0a0008, transparent);
-}
+.sponsors-ticker::before { left: 0;  background: linear-gradient(90deg,  #0a0008, transparent); }
+.sponsors-ticker::after  { right: 0; background: linear-gradient(-90deg, #0a0008, transparent); }
 
 .ticker-track {
     display: flex;
@@ -878,9 +750,7 @@ button:hover {
     animation: ticker 20s linear infinite;
 }
 
-.ticker-track:hover {
-    animation-play-state: paused;
-}
+.ticker-track:hover { animation-play-state: paused; }
 
 @keyframes ticker {
     from { transform: translateX(0); }
@@ -895,16 +765,15 @@ button:hover {
     white-space: nowrap;
 }
 
-.ticker-item:hover {
-    opacity: 1;
-}
+.ticker-item:hover { opacity: 1; }
 
 .ticker-item img {
     height: 40px;
     object-fit: contain;
     filter: brightness(0) invert(1);
 }
-/* ---------- FAQ ---------- */
+
+/* ── FAQ ── */
 .faq {
     padding: 60px 40px 100px;
     margin: 0;
@@ -947,9 +816,7 @@ button:hover {
     transition: border-color 0.3s;
 }
 
-.faq-item:hover {
-    border-color: rgba(57,255,20,0.3);
-}
+.faq-item:hover { border-color: rgba(57,255,20,0.3); }
 
 .faq-question {
     width: 100%;
@@ -984,7 +851,8 @@ button:hover {
 }
 
 .faq-question:focus {
-    outline: 2px solid rgba(57,255,20,0.18);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(57,255,20,0.06);
 }
 
 .faq-answer {
@@ -1008,466 +876,437 @@ button:hover {
     background: linear-gradient(90deg, rgba(57,255,20,0.05), rgba(0,240,255,0.05));
 }
 
-.faq-question:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(57,255,20,0.06);
+/* fade-in utility */
+.fade-in { animation: fadeIn 1s ease forwards; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- RESPONSIVE ---------- */
 
+/* HERO APPLY CTA (GOLD VERSION + DOTTED ARROW) */
 
+.hero-apply-wrap{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
+  border-radius: 999px;
 
+  position: relative;
+  z-index: 10;
 
+  --heroApplyX: 0px;
+  --heroApplyY: 0px;
 
-
-
-/*
-   MOBILE OVERRIDE (REPLACEMENT - FLUID RESPONSIVE)
-   Paste at the VERY bottom of style.css
-*/
-
-/* ---------- GLOBAL FLUID SAFETY ---------- */
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-img, video { max-width: 100%; height: auto; display: block; }
-body { overflow-x: hidden; }
-
-/* Better fixed-header anchor behavior (uses a variable header height) */
-:root{
-  /* header height target (used for scroll offset + section spacing) */
-  --header-h: 96px;
-  --page-pad: clamp(14px, 3vw, 28px);
-}
-:target { scroll-margin-top: calc(var(--header-h) + 18px); }
-
-/* Tap friendliness */
-a, button { touch-action: manipulation; }
-
-/* ---------- TOP BAR: stable on ALL small sizes ---------- */
-
-
-/* ---------- TABLET + DOWN (fluid, not “device specific”) ---------- */
-
-
-/* ---------- PHONE (<=768): no big transforms; center + scale naturally ---------- */
-
-
-/* ---------- VERY SMALL PHONES (<=420): tighten a bit ---------- */
-
-
-/* ---------- MOBILE BACKGROUND: keep your behavior ---------- */
-
-
-/* ---------- SHORT + WIDE (landscape phones / smart displays) ---------- */
-
-
-/* ---------- REDUCE MOTION ---------- */
-
-/* =====================================================================
-   MEDIA QUERIES (moved here for organization)
-   IMPORTANT: Blocks are kept in the EXACT original source order to
-   preserve cascade behavior. Do not reorder unless you re-test.
-   Breakpoint index references: MQ-01 ... MQ-13
-   ===================================================================== */
-/* (max-width: 1024px) -> MQ-07,MQ-08 */
-/* (max-height: 650px) and (max-width: 1024px) -> MQ-12 */
-/* (max-width: 768px) -> MQ-02,MQ-03,MQ-09,MQ-11 */
-/* (max-width: 480px) -> MQ-01,MQ-04 */
-/* (max-width: 420px) -> MQ-05,MQ-10 */
-/* (max-width: 360px) -> MQ-06 */
-/* (prefers-reduced-motion: reduce) -> MQ-13 */
-
-/* ------------------------- BEGIN MEDIA QUERIES ------------------------- */
-
-/* =============================== MQ-01 ===============================
-   Condition: (max-width: 480px)
-   ====================================================================== */
-@media (max-width: 480px) {
-    .nav-pill { gap: 15px; }
-    .nav-pill a { font-size: 11px; letter-spacing: 1px; }
+  transform: translate(var(--heroApplyX), var(--heroApplyY));
 }
 
-/* =============================== MQ-02 ===============================
-   Condition: (max-width: 768px)
-   ====================================================================== */
-@media (max-width: 768px) {
-    .slide-btn.prev { left: 4px; }
-    .slide-btn.next { right: 4px; }
+/* optional press scale */
+.hero-apply-wrap.is-pressed{
+  transform: translate(var(--heroApplyX), var(--heroApplyY)) scale(0.96);
 }
 
-/* =============================== MQ-03 ===============================
-   Condition: (max-width: 768px)
-   ====================================================================== */
-@media (max-width: 768px) {
-    .about { padding: 60px 20px; }
-    .tracks { padding: 60px 20px; }
-    .sponsors { padding: 60px 20px; }
-    .faq { padding: 60px 20px; }
+/* BIG TEXT BUTTON */
+.hero-apply-btn.Btn-Container{
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
 
-    /* Keep badge from distorting on small screens */
-.mlh img  {
-  height: auto !important;          /* ensures aspect ratio */
-  object-fit: contain !important;   /* extra safety */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+
+  padding: 16px 10px;
+  cursor: pointer;
+  text-decoration: none;
+
+  font-family: 'HK Modular', 'Orbitron', sans-serif;
+  font-weight: 800;
+
+  font-size: 50px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: #ffec4e;
+
+  text-shadow:
+    0 0 8px rgba(255,236,78,0.55),
+    0 0 18px rgba(255,236,78,0.35);
+
+  transition:
+    transform 0.25s ease,
+    text-shadow 0.35s ease;
 }
 
-/* Instead of setting height in these breakpoints, set width */
-@media (max-width: 480px) {
-  .mlh img { width: 64px; height: auto !important; }  /* replaces height:64px */
+.hero-apply-btn .text{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 360px) {
-  .mlh img { width: 56px; height: auto !important; }  /* replaces height:56px */
+/* arrow container */
+.hero-apply-btn .icon-Container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-    .tracks-inner {
-        flex-direction: column;
-        text-align: center;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .carousel-container {
-        padding-left: 0;
-    }
-    .carousel {
-        width: 280px;
-        height: 280px;
-    }
-    .carousel-item {
-        width: 110px;
-        height: 110px;
-        margin: -55px 0 0 -55px;
-    }
-    .carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(150px); }
-    .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(150px); }
-    .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(150px); }
-    .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(150px); }
-
-    .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
+/* arrow automatically matches text color */
+.hero-apply-btn .arrow{
+  color: currentColor;
 }
 
-/* =============================== MQ-04 ===============================
-   Condition: (max-width: 480px)
-   ====================================================================== */
-@media (max-width: 480px) {
-    .mlh { right: 16px; top: 6px; }
-    .mlh img { height: 64px; }
-    .about { padding: 40px 15px; }
-    .tracks { padding: 40px 15px; }
-    .sponsors { padding: 40px 15px; }
-    .faq { padding: 40px 15px; }
-    .nav-pill { padding: 6px 10px; gap: 8px; font-size: 12px; }
+/* Hover = brighter gold + lift */
+.hero-apply-btn:hover{
+  transform: translateY(-4px);
+
+  text-shadow:
+    0 0 18px rgba(255,236,78,0.9),
+    0 0 40px rgba(255,236,78,0.8),
+    0 0 80px rgba(255,236,78,0.6);
 }
 
-/* =============================== MQ-05 ===============================
-   Condition: (max-width: 420px)
-   ====================================================================== */
-@media (max-width: 420px) {
-    .section-title { font-size: 32px; }
-    .faq-question { padding: 16px 18px; font-size: 14px; }
-    .faq-answer { padding: 0 18px; font-size: 14px; }
-    .faq-item.open .faq-answer { padding: 0 18px 16px 18px; }
-    .sponsors-grid { grid-template-columns: 1fr; }
+/* reveal arrow */
+.hero-apply-btn:hover .icon-Container{
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* =============================== MQ-06 ===============================
-   Condition: (max-width: 360px)
-   ====================================================================== */
-@media (max-width: 360px) {
-    .mlh img { height: 56px; }
+/* animated dotted arrow */
+.hero-apply-btn:hover .arrow{
+  animation: dottedArrow 0.9s ease-in-out infinite;
 }
 
-/* =============================== MQ-07 ===============================
-   Condition: (max-width: 1024px)
-   ====================================================================== */
-@media (max-width: 1024px){
-  .top-bar{
-    position: fixed !important;
-    top: 0; left: 0; right: 0;
-    width: 100%;
-    z-index: 9999;
-
-    /* Safe-area friendly for iPhone notch */
-    padding-top: calc(10px + env(safe-area-inset-top));
-    padding-bottom: 10px;
-    padding-left: var(--page-pad);
-    padding-right: var(--page-pad);
-
-    /* Never allow header scrollbars */
-    overflow: hidden !important;
+@keyframes dottedArrow{
+  0% {
+    transform: translateX(0);
+    opacity: 0;
   }
-
-  /* Prevent any child from forcing extra height */
-  .top-bar *{ max-height: 100%; }
-
-  /* Make sure content below header doesn’t hide under it */
-  .hero{ padding-top: calc(var(--header-h) + 24px); }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(12px);
+    opacity: 1;
+  }
 }
 
-/* =============================== MQ-08 ===============================
-   Condition: (max-width: 1024px)
-   ====================================================================== */
-@media (max-width: 1024px){
-  /* Slightly more compact header rhythm */
-  :root{ --header-h: 92px; }
+.hero-apply-btn:focus-visible{
+  outline: none;
+}
 
-  .top-bar{
-    gap: 12px;
-    align-items: center;
-  }
 
-  /* Keep MLH inside bar on smaller widths */
-  .mlh{ position: static; margin-left: auto; }
-  .mlh img{ width: clamp(70px, 10vw, 92px); margin: 0; height: auto; }
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-NARROW │ max-width: 505px
+   Hide TRACKS (2nd) and SPONSORS (3rd) nav links, center the remaining ones.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 505px) {
+  .nav-pill a:nth-child(2),
+  .nav-pill a:nth-child(3) { display: none; }
 
-  /* Allow nav to wrap on tablets without vertical scrolling */
-  .nav-pill{
-    margin: 0;
-    gap: clamp(10px, 2.2vw, 18px);
-    flex-wrap: wrap;
+  .nav-pill {
     justify-content: center;
-    white-space: normal;
-    overflow: hidden !important;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
   }
-  .nav-pill a{ font-size: clamp(12px, 1.2vw, 14px); letter-spacing: 1.2px; }
 }
 
-/* =============================== MQ-09 ===============================
-   Condition: (max-width: 768px)
-   ====================================================================== */
-@media (max-width: 768px){
-  :root{ --header-h: 86px; }
 
-  /* Hide big social row on phones (your original intent) */
-  .social-icons-top{ display: none; }
 
-  .top-bar{
-    padding-left: var(--page-pad);
-    padding-right: var(--page-pad);
-  }
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-1 │ max-width: 768px  (mobile)
+   All hero offsets zeroed. Content centered. Sections stacked cleanly.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root { --header-h: 86px; }
 
-  /* Keep nav readable and ALWAYS fit: horizontal scroll (X only) */
-  .nav-pill{
+  body { background-size: cover; background-position: center top; }
+
+  .social-icons-top { display: none; }
+
+  .top-bar { padding-left: var(--page-pad); padding-right: var(--page-pad); }
+
+  .nav-pill {
     width: 100%;
     flex-wrap: nowrap;
     justify-content: flex-start;
-
     overflow-x: auto;
     overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
-
     scrollbar-width: none;
     padding: 6px 2px;
-    gap: 16px;
+    gap: 14px;
     align-items: center;
     line-height: 1;
+    margin-right: 0;
   }
-  .nav-pill::-webkit-scrollbar{ display: none; }
+  .nav-pill::-webkit-scrollbar { display: none; }
 
-  .nav-pill a{
+  .nav-pill a {
     flex: 0 0 auto;
     white-space: nowrap;
     font-size: 12px;
-    letter-spacing: 1.1px;
+    letter-spacing: 1px;
+    display: inline-block;
   }
 
-  /* ✅ IMPORTANT CHANGE:
-     Don’t hide links; just allow scroll so every phone can access everything. */
-  .nav-pill a{ display: inline-block; }
+  .mlh img { width: 72px; height: auto !important; }
 
-  /* HERO: remove translate offsets that cause overflow / weird scaling */
-  .hero{
-    min-height: min(84svh, 900px); /* svh avoids iOS “100vh jump” */
-    height: auto;
-    padding-top: calc(var(--header-h) + 22px);
-    justify-content: center;
-    text-align: center;
-  }
+  .hero                      { min-height: min(84svh, 900px); height: auto; padding-top: calc(var(--header-h) + 22px); justify-content: center; text-align: center; }
 
-  .hero-content{
-    max-width: 980px;
-    width: 100%;
-    padding: 0 var(--page-pad);
-  }
+  .hero-content              { max-width: 100%; width: 100%; padding: 0 var(--page-pad); }
+  .hero-pack                 { display: block; transform: none !important; }
+  .hero-content .site-logo   { width: min(88vw, 480px); max-width: 480px; height: auto; margin: 0 auto 10px; transform: none !important; }
+  .hero-subtitles            { transform: none !important; margin-top: 12px; text-align: center; }
+  .hero-subtitle-1           { transform: none !important; font-size: clamp(18px, 5.2vw, 30px); margin: clamp(8px, 2.5vw, 14px) 0 0; text-align: center; }
+  .hero-subtitle-2           { transform: none !important; font-size: clamp(16px, 4.8vw, 26px); margin: 6px 0 0; text-align: center; }
+  .shpe-logo                 { transform: none !important; height: auto; width: min(52vw, 220px); max-width: 220px; margin: clamp(14px, 3vw, 22px) auto 0; display: block; }
 
-  .hero-content .site-logo{
-    width: min(92vw, 520px);
-    max-width: 520px;
-    height: auto;
-    margin: 0 auto 10px;
-    transform: none !important; /* kill desktop translateX/translateY */
-  }
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; margin: clamp(12px, 3vw, 20px) auto 0; display: flex; }
 
-  .hero-subtitle-1,
-  .hero-subtitle-2{
-    transform: none !important; /* kill desktop offsets */
-    margin: 0;
-    text-align: center;
-  }
+  .hero-apply-btn.Btn-Container { font-size: clamp(26px, 7.5vw, 38px); letter-spacing: 2px; padding: 10px 8px; }
 
-  .hero-subtitle-1{
-    font-size: clamp(18px, 5.2vw, 34px);
-    margin-top: clamp(8px, 2.5vw, 14px);
-  }
-
-  .hero-subtitle-2{
-    font-size: clamp(18px, 5.0vw, 30px);
-    margin-top: 6px;
-  }
-
-  /* SHPE logo: stop the huge scale + offsets; keep it clean + responsive */
-  .shpe-logo{
-    transform: none !important;
-    height: auto;
-    width: min(56vw, 260px);
-    max-width: 260px;
-    margin: clamp(14px, 3vw, 22px) auto 0;
-    display: block;
-  }
-
-  /* SECTIONS: consistent, fluid spacing */
-  .about,
-  .tracks,
-  .gallery,
-  .sponsors,
-  .faq{
+  .about, .tracks, .gallery, .sponsors, .faq {
     min-height: auto;
     margin: 0 !important;
-    padding: calc(var(--header-h) + 54px) var(--page-pad) 64px;
+    padding: calc(var(--header-h) + 40px) var(--page-pad) 60px;
   }
 
-  .about-inner,
-  .tracks-inner,
-  .gallery-inner,
-  .sponsors-inner,
-  .faq-inner{
-    max-width: 920px;
+  .about-inner, .tracks-inner, .gallery-inner, .sponsors-inner, .faq-inner {
+    max-width: 100%;
     margin: 0 auto;
     padding: 0;
   }
 
-  .section-title{
-    font-size: clamp(26px, 7vw, 38px);
-  }
+  .about-inner    { padding-top: 0; }
+  .sponsors-inner { padding-top: 0; }
 
-  .about .lead{
-    font-size: clamp(14px, 3.7vw, 16px);
-    line-height: 1.65;
-  }
+  .section-title { font-size: clamp(26px, 7vw, 38px); }
+  .about .lead   { font-size: clamp(14px, 3.7vw, 16px); line-height: 1.65; }
 
-  .about-pills{ gap: 12px; }
-  .pill-btn{
-    width: 100%;
-    max-width: 440px;
-    padding: 12px 18px;
-    font-size: 14px;
-  }
+  .about-pills { gap: 10px; }
+  .pill-btn    { width: 100%; max-width: 400px; padding: 12px 18px; font-size: 14px; }
 
-  /* TRACKS: your desktop has big offsets; remove them on mobile */
-  .tracks-inner{
+  .tracks-inner {
     flex-direction: column;
+    align-items: center;
     gap: 26px;
     text-align: center;
+    padding-left: 0;
+    padding-right: 0;
   }
-  .tracks-title{
-    margin: 0 !important;
-    font-size: clamp(28px, 6vw, 44px);
-    letter-spacing: 4px;
-    text-align: center;
-  }
-  .carousel-container{ padding-left: 0 !important; gap: 20px; }
 
-  /* Carousel scales smoothly */
-  .carousel{
-    width: clamp(250px, 74vw, 320px);
-    height: clamp(250px, 74vw, 320px);
-  }
-  .carousel-item{
-    width: clamp(96px, 26vw, 120px);
-    height: clamp(96px, 26vw, 120px);
-    margin: calc(clamp(96px, 26vw, 120px) * -0.5) 0 0 calc(clamp(96px, 26vw, 120px) * -0.5);
-  }
-  .carousel-item img{
-    width: clamp(70px, 18vw, 86px);
-    height: clamp(70px, 18vw, 86px);
-  }
-  /* translateZ should follow the carousel size */
-  .carousel-item:nth-child(1){ transform: rotateY(0deg)   translateZ(clamp(135px, 38vw, 170px)); }
-  .carousel-item:nth-child(2){ transform: rotateY(90deg)  translateZ(clamp(135px, 38vw, 170px)); }
-  .carousel-item:nth-child(3){ transform: rotateY(180deg) translateZ(clamp(135px, 38vw, 170px)); }
-  .carousel-item:nth-child(4){ transform: rotateY(270deg) translateZ(clamp(135px, 38vw, 170px)); }
+  .tracks-left               { align-items: center; text-align: center; }
+  .track-title               { text-align: center !important; margin-left: 0; margin-top: 0; align-self: auto; }
 
-  .carousel-title{ font-size: 18px; }
-  .carousel-desc{ font-size: 14px; max-width: 560px; }
+  .carousel-container { padding-left: 0 !important; gap: 20px; }
 
-  /* GALLERY: remove desktop margin-left permanently on small screens */
-  .gallery{ margin-left: 0 !important; }
-  .slideshow-wrapper{ max-width: 720px; width: 100%; }
-  .slide-btn.prev{ left: 6px; }
-  .slide-btn.next{ right: 6px; }
+  .carousel { width: clamp(250px, 74vw, 310px); height: clamp(250px, 74vw, 310px); }
 
-  /* SPONSORS */
-  .sponsors-grid{
+  .carousel-item {
+    width: clamp(96px, 26vw, 116px);
+    height: clamp(96px, 26vw, 116px);
+    margin: calc(clamp(96px, 26vw, 116px) * -0.5) 0 0 calc(clamp(96px, 26vw, 116px) * -0.5);
+  }
+
+  .carousel-item img { width: clamp(68px, 17vw, 82px); height: clamp(68px, 17vw, 82px); }
+
+  .carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(clamp(130px, 37vw, 165px)); }
+  .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(clamp(130px, 37vw, 165px)); }
+  .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(clamp(130px, 37vw, 165px)); }
+  .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(clamp(130px, 37vw, 165px)); }
+
+  .carousel-title { font-size: 23px; }
+  .carousel-desc  { font-size: 18px; max-width: 100%; }
+
+  .gallery          { margin-left: 0 !important; }
+  .slideshow-wrapper { max-width: 100%; width: 100%; }
+  .slide-btn.prev   { left: 4px; }
+  .slide-btn.next   { right: 4px; }
+
+  .sponsors-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    max-width: 900px;
-    margin: 28px auto 0;
+    gap: 12px;
+    max-width: 100%;
+    margin: 20px auto 0;
   }
-  .sponsor-card img{
-    height: 56px;
-    transform: none; /* avoid “random scale explosions” */
-  }
-  /* If you still want Robobulls bigger, do it safely */
-  .sponsor-card:nth-child(5) img{ transform: scale(1.5); }
 
-  /* FAQ */
-  .faq-question{
-    padding: 16px 16px;
-    font-size: 14px;
-    overflow: hidden;
-  }
-  .faq-answer{ font-size: 14px; }
+  .sponsor-card img                 { height: 56px; transform: none; }
+  .sponsor-card:nth-child(5) img    { transform: scale(1.4); }
+
+  .faq-question { padding: 16px; font-size: 14px; }
+  .faq-answer   { font-size: 14px; }
 }
 
-/* =============================== MQ-10 ===============================
-   Condition: (max-width: 420px)
-   ====================================================================== */
-@media (max-width: 420px){
-  :root{ --header-h: 82px; }
 
-  .nav-pill{ gap: 12px; }
-  .nav-pill a{ font-size: 11px; letter-spacing: 1px; }
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-2 │ 769px – 1023px  (iPad Air 820, iPad Pro 834, Surface Pro 912)
+   Wide enough for desktop background but transforms are too extreme at this size.
+   Zero everything out — centered like mobile, clean and simple.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1023px) {
 
-  .sponsors-grid{ grid-template-columns: 1fr; }
+  body { background-size: cover; background-position: center top; }
+
+  .social-icons-top { display: none; }
+
+  .hero-pack                 { display: block; transform: none !important; }
+
+  .hero-content .site-logo   { width: min(80vw, 520px); max-width: 520px; height: auto; margin: 0 auto 10px; transform: none !important; }
+  .hero-subtitles            { transform: none !important; margin-top: 12px; text-align: center; }
+  .hero-subtitle-1           { transform: none !important; font-size: clamp(20px, 3vw, 30px); margin: 12px 0 0; text-align: center; }
+  .hero-subtitle-2           { transform: none !important; font-size: clamp(18px, 2.8vw, 28px); margin: 6px 0 0; text-align: center; }
+  .shpe-logo                 { transform: none !important; height: auto; width: min(40vw, 260px); max-width: 260px; margin: 20px auto 0; display: block; }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; margin: 20px auto 0; display: flex; }
+
+  .hero-apply-btn.Btn-Container { font-size: clamp(28px, 4.5vw, 42px); }
+
+  .tracks-inner              { gap: 50px; }
+
+  .carousel                  { width: clamp(396px, 55vw, 506px); height: clamp(396px, 55vw, 506px); }
+  .carousel-item             { width: clamp(132px, 17.6vw, 165px); height: clamp(132px, 17.6vw, 165px); margin: calc(clamp(132px, 17.6vw, 165px) * -0.5) 0 0 calc(clamp(132px, 17.6vw, 165px) * -0.5); }
+  .carousel-item img         { width: clamp(90px, 12vw, 116px); height: clamp(90px, 12vw, 116px); }
+  .carousel-item:nth-child(1) { transform: rotateY(0deg)   translateZ(clamp(207px, 28.6vw, 264px)); }
+  .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(clamp(207px, 28.6vw, 264px)); }
+  .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(clamp(207px, 28.6vw, 264px)); }
+  .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(clamp(207px, 28.6vw, 264px)); }
 }
 
-/* =============================== MQ-11 ===============================
-   Condition: (max-width: 768px)
-   ====================================================================== */
-@media (max-width: 768px){
-  body{
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-3 │ 1024px – 1279px  (small desktop)
+   Subtitle Y pulled back to -260px to prevent overlap with logo as wrapper
+   shifts right up to +300px at the narrow end of this range.
+   At 1280px → wrapper ~+115px,  at 1024px → wrapper ~+300px
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  body { background-size: cover; background-position: center top; }
+
+  .social-icons-top { display: none; }
+
+  .hero-pack {
+    display: inline-block;
+    transform: translateX(clamp(115px, calc((1200px - 100vw) * 0.72), 300px)) !important;
   }
+
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-380px) translateY(-280px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-71px) translateY(-10px); }
+  .shpe-logo                 { transform: translateX(-250px) translateY(0px) scale(4.6); }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; }
 }
 
-/* =============================== MQ-12 ===============================
-   Condition: (max-height: 650px) and (max-width: 1024px)
-   ====================================================================== */
-@media (max-height: 650px) and (max-width: 1024px){
-  .hero{
-    min-height: auto;
-    padding-top: calc(var(--header-h) + 16px);
-    padding-bottom: 24px;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-4 │ 1280px – 1439px  (medium desktop)
+   Full -390px Y restored. Wrapper finishes drifting from ~+115px to 0 at 1440.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1280px) and (max-width: 1439px) {
+
+  body { background-size: cover; background-position: center top; }
+
+  .hero-pack {
+    display: inline-block;
+    transform: translateX(clamp(0px, calc((1440px - 100vw) * 0.72), 115px)) !important;
   }
-  .shpe-logo{ width: min(40vw, 220px); }
+
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-395px) translateY(-350px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-90px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(-300px) translateY(-100px) scale(6.6); }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; }
 }
 
-/* =============================== MQ-13 ===============================
-   Condition: (prefers-reduced-motion: reduce)
-   ====================================================================== */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   OVERRIDE │ 1366px  (1366×768 pin)
+   Paste at the very bottom of your CSS, above the reduced-motion rule.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1366px) and (max-width: 1439px) {
+
+  .hero-pack {
+    transform: translateX(55px) !important;
+  }
+
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-405px) translateY(-370px); }
+  .hero-subtitle-1           { transform: translateX(3px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-95px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(-350px) translateY(0px) scale(6.6); }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-3 │ min-width: 1440px  (large desktop → 1920+)
+   At 1440px → translateX(240px). Smoothly slides to 0px at 1920px.
+   Internal transforms IDENTICAL to MQ-2 — no cascade conflict.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1440px) {
+
+  body { background-size: cover; background-position: center top; }
+
+  /*
+   * At 1440px → (1920-1440)*0.5 = 240px
+   * At 1920px → (1920-1920)*0.5 =   0px  ← perfect on your screen
+   */
+  .hero-pack {
+    transform: translateX(clamp(0px, calc((1920px - 100vw) * 0.5), 240px)) !important;
+  }
+
+  /* ⚠️ IDENTICAL to MQ-2 — no cascade jump between 1440–1919px */
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-405px) translateY(-390px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-103px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(50px) translateY(-100px) scale(6.6); }
+
+  /* Center button by cancelling parent's X offset; push down with Y */
+  .hero-apply-wrap           { --heroApplyX: 405px; --heroApplyY: 60px; }
+
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   OVERRIDE │ min-width: 1920px  (1920×1080 pin)
+   Paste at the very bottom of your CSS, above the reduced-motion rule.
+   Tweak the transform values until it looks perfect on your screen.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1870px) {
+
+    body {
+  background-size: cover;
+  background-position: center -250px; /* adjust this value */
+  background-repeat: no-repeat;
+}
+
+  .hero-pack {
+    transform: translateX(0px) ;
+  }
+
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-500px) translateY(-500px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-103px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(-500px) translateY(-100px) scale(6.6); }
+
+  /* Center button by cancelling parent's X offset; push down with Y */
+  .hero-apply-wrap           { --heroApplyX: 550px; --heroApplyY: 120px; }
+
+}
+
+/* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
-
-/* -------------------------- END MEDIA QUERIES -------------------------- */
