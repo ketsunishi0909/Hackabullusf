@@ -1023,7 +1023,7 @@ button:hover {
    MQ-1 │ max-width: 768px  (mobile)
    All hero offsets zeroed. Content centered. Sections stacked cleanly.
    ───────────────────────────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   :root { --header-h: 86px; }
 
   body { background-size: cover; background-position: center top; }
@@ -1061,14 +1061,14 @@ button:hover {
   .hero                      { min-height: min(84svh, 900px); height: auto; padding-top: calc(var(--header-h) + 22px); justify-content: center; text-align: center; }
 
   .hero-content              { max-width: 100%; width: 100%; padding: 0 var(--page-pad); }
-  .hero-pack                 { display: block; transform: none !important; }
-  .hero-content .site-logo   { width: min(88vw, 480px); max-width: 480px; height: auto; margin: 0 auto 10px; transform: none !important; }
-  .hero-subtitles            { transform: none !important; margin-top: 12px; text-align: center; }
+  .hero-pack                 { display: block; transform: translateY(-70px); }
+  .hero-content .site-logo   { width: min(88vw, 480px); max-width: 600px; height: auto; margin: 0 auto 10px; transform:translateY(-100px) scale(1.3) }
+  .hero-subtitles            { transform: none !important; margin-top: -250px; text-align: center; }
   .hero-subtitle-1           { transform: none !important; font-size: clamp(18px, 5.2vw, 30px); margin: clamp(8px, 2.5vw, 14px) 0 0; text-align: center; }
   .hero-subtitle-2           { transform: none !important; font-size: clamp(16px, 4.8vw, 26px); margin: 6px 0 0; text-align: center; }
-  .shpe-logo                 { transform: none !important; height: auto; width: min(52vw, 220px); max-width: 220px; margin: clamp(14px, 3vw, 22px) auto 0; display: block; }
-
-  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; margin: clamp(12px, 3vw, 20px) auto 0; display: flex; }
+  .shpe-logo                 { transform: TranslateY(150px) scale(1.6); height: auto; width: min(52vw, 220px); max-width: 220px; margin: clamp(14px, 3vw, 22px) auto 0; display: block; }
+                                /*150px and 1.3 scalefor 360*/
+  .hero-apply-wrap           { /*--heroApplyX: 300px; --heroApplyY: 150px;*/ display: flex; transform:TranslateY(150px) TranslateX(0px) scale(1);}
 
   .hero-apply-btn.Btn-Container { font-size: clamp(26px, 7.5vw, 38px); letter-spacing: 2px; padding: 10px 8px; }
 
@@ -1146,11 +1146,37 @@ button:hover {
 
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   MQ-2 │ 769px – 1023px  (iPad Air 820, iPad Pro 834, Surface Pro 912)
+   MQ-2 │ 768px – 1023px  (iPad Air 820, iPad Pro 834, Surface Pro 912)
    Wide enough for desktop background but transforms are too extreme at this size.
    Zero everything out — centered like mobile, clean and simple.
    ───────────────────────────────────────────────────────────────────────────── */
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+
+ .top-bar { padding-left: var(--page-pad); padding-right: var(--page-pad); }
+
+  .nav-pill {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 6px 2px;
+    gap: 14px;
+    align-items: center;
+    line-height: 1;
+    margin-right: 0;
+  }
+  .nav-pill::-webkit-scrollbar { display: none; }
+
+  .nav-pill a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: inline-block;
+  }
 
   body { background-size: cover; background-position: center top; }
 
@@ -1188,6 +1214,12 @@ button:hover {
 
 /* 1024px – 1231px */
 @media (min-width: 1024px) and (max-width: 1231px) {
+
+    
+    /*HIDE SOCIAL ICONS*/
+    .social-icons-top { display: none; }
+
+
   .hero-content .site-logo {
     transform: translateX(-150px) translateY(-10px) scale(1.4);
   }
@@ -1345,6 +1377,23 @@ button:hover {
 
 }
 
+/*APPLY BUTTON EFFECT ALWAYS ACTIVE ON MOBILE AND IPAD*/
+@media (max-width: 1023px) {
+  .hero-apply-btn .icon-Container { opacity: 1; transform: translateX(0); }
+  .hero-apply-btn .arrow { animation: dottedArrow 0.9s ease-in-out infinite; }
+  .hero-apply-btn.Btn-Container {
+    text-shadow:
+      0 0 18px rgba(255,236,78,0.9),
+      0 0 40px rgba(255,236,78,0.8),
+      0 0 80px rgba(255,236,78,0.6);
+
+  }
+
+.hero-apply-btn.Btn-Container   { flex-direction: column; gap: 4px; }
+.hero-apply-btn .icon-Container { opacity: 1 !important; transform: rotate(90deg) translateX(0) !important; }
+.hero-apply-btn .arrow          { animation: dottedArrow 0.9s ease-in-out infinite !important; }
+
+}
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
