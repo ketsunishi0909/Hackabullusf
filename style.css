@@ -783,8 +783,7 @@ button:hover {
 }
 
 .faq-inner {
-    max-width: 1000px;
-    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
@@ -799,350 +798,89 @@ button:hover {
     margin-bottom: 40px;
 }
 
-/* FAQ category tabs */
-.faq-tabs {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 50px;
-}
-
-.faq-tab {
-    background: rgba(10, 6, 20, 0.7);
-    border: 1px solid rgba(255,45,120,0.2);
-    border-radius: 16px;
-    padding: 20px 28px;
-    color: rgba(255,255,255,0.5);
-    font-family: 'HK Modular', 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    position: relative;
-    overflow: hidden;
-    min-width: unset;
-    white-space: nowrap;
-}
-
-.faq-tab::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,45,120,0.08), rgba(255,45,120,0.04));
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    border-radius: 16px;
-}
-
-.faq-tab:hover::before,
-.faq-tab.active::before {
-    opacity: 1;
-}
-
-.faq-tab:hover,
-.faq-tab.active {
-    background: rgba(10, 6, 20, 0.9);
-    border-color: #ff2d78;
-    color: #ff2d78;
-    box-shadow:
-        0 0 20px rgba(255,45,120,0.25),
-        0 0 60px rgba(255,45,120,0.1),
-        inset 0 0 20px rgba(255,45,120,0.05);
-    transform: translateY(-3px);
-    text-shadow: 0 0 12px rgba(255,45,120,0.6);
-}
-
 .faq-list {
     display: grid;
-    gap: 14px;
+    gap: 16px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .faq-item {
-    background: rgba(10, 6, 20, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
+    background: rgba(10,6,20,0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(57,255,20,0.12);
+    border: 1px solid rgba(57,255,20,0.1);
     width: 100%;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-    position: relative;
+    transition: border-color 0.3s;
 }
 
-.faq-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(57,255,20,0.04), rgba(0,240,255,0.02), transparent);
-    pointer-events: none;
-}
-
-.faq-item:hover {
-    border-color: rgba(57,255,20,0.35);
-    box-shadow: 0 0 30px rgba(57,255,20,0.08), 0 8px 32px rgba(0,0,0,0.3);
-    transform: translateY(-2px);
-}
-
-.faq-item.open {
-    border-color: rgba(57,255,20,0.45);
-    box-shadow: 0 0 40px rgba(57,255,20,0.12), 0 8px 40px rgba(0,0,0,0.4);
-    background: rgba(10, 6, 20, 0.85);
-}
+.faq-item:hover { border-color: rgba(57,255,20,0.3); }
 
 .faq-question {
     width: 100%;
     text-align: left;
-    padding: 26px 32px;
+    padding: 20px 24px;
     font-weight: 700;
-    background: transparent;
-    color: #ff2d78;
+    background: linear-gradient(90deg, rgba(57,255,20,0.03), rgba(0,240,255,0.03));
+    color: var(--muted-text);
     border: none;
     cursor: pointer;
-    font-family: 'HK Modular', 'Orbitron', sans-serif;
-    letter-spacing: 0.6px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    font-size: 17px;
-    transition: color 0.3s ease;
+    gap: 12px;
+    font-size: 16px;
 }
 
 .faq-question::after {
     content: '+';
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1;
-    flex-shrink: 0;
-    color: rgba(57,255,20,0.7);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-}
-
-.faq-item.open .faq-question {
-    color: #ff2d78;
+    opacity: 0.9;
+    transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
 .faq-item.open .faq-question::after {
     content: '\2212';
-    color: #ff2d78;
-    transform: rotate(180deg);
+    transform: rotate(0deg);
+    opacity: 1;
 }
 
-.faq-question:active,
 .faq-question:focus {
     outline: none;
-    box-shadow: none;
-    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 0 0 4px rgba(57,255,20,0.06);
 }
 
 .faq-answer {
-    padding: 0 32px;
+    padding: 0 24px;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    color: rgba(230,255,245,0.85);
-    font-size: 16px;
-    line-height: 1.8;
-    font-family: 'Inter', sans-serif;
-    border-top: 1px solid transparent;
+    transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.3s ease;
+    color: rgba(230,255,245,0.95);
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 .faq-item.open .faq-answer {
     max-height: 600px;
     opacity: 1;
-    padding: 20px 32px 28px;
-    border-top-color: rgba(57,255,20,0.1);
-}
-
-.faq-answer a {
-    color: #ff2d78;
-    text-decoration: none;
-    font-weight: 600;
-    transition: text-shadow 0.3s ease;
-}
-
-.faq-answer a:hover {
-    text-shadow: 0 0 10px rgba(57,255,20,0.6);
+    padding: 0 24px 20px 24px;
 }
 
 .faq-question:hover {
-    color: rgba(255,255,255,0.9);
-}
-/* ── SCROLL REVEAL ── */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+    background: linear-gradient(90deg, rgba(57,255,20,0.05), rgba(0,240,255,0.05));
 }
 
-.reveal-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.reveal-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.reveal-scale {
-    opacity: 0;
-    transform: scale(0.92);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-scale.visible {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Stagger children */
-.stagger-children > *:nth-child(1) { transition-delay: 0.00s; }
-.stagger-children > *:nth-child(2) { transition-delay: 0.08s; }
-.stagger-children > *:nth-child(3) { transition-delay: 0.16s; }
-.stagger-children > *:nth-child(4) { transition-delay: 0.24s; }
-.stagger-children > *:nth-child(5) { transition-delay: 0.32s; }
-.stagger-children > *:nth-child(6) { transition-delay: 0.40s; }
-.stagger-children > *:nth-child(7) { transition-delay: 0.48s; }
-.stagger-children > *:nth-child(8) { transition-delay: 0.56s; }
-.stagger-children > *:nth-child(9) { transition-delay: 0.64s; }
-.stagger-children > *:nth-child(10) { transition-delay: 0.72s; }
-
-/* ── HEADER HIDE/SHOW ── */
-.top-bar {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.top-bar.header-hidden {
-    transform: translateY(-100%);
-}
-
-/* ── GLOW PULSE on section titles ── */
-.section-title.glow {
-    animation: glowPulse 3s ease-in-out infinite alternate;
-}
-@keyframes glowPulse {
-    0% {
-        text-shadow:
-            0 0 6px rgba(153,194,224,0.80),
-            0 0 18px rgba(0,240,255,0.50),
-            0 0 36px rgba(110,242,184,0.30);
-    }
-    100% {
-        text-shadow:
-            0 0 10px rgba(153,194,224,1),
-            0 0 28px rgba(0,240,255,0.80),
-            0 0 56px rgba(110,242,184,0.55),
-            0 0 80px rgba(0,240,255,0.20);
-    }
-}
-
-/* ── PILL BUTTON hover glow ── */
-.pill-btn {
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.pill-btn:hover {
-    box-shadow: 0 0 20px rgba(255,45,120,0.35), 0 0 40px rgba(255,45,120,0.15);
-    transform: translateY(-3px);
-    border-color: rgba(255,45,120,0.9);
-}
-
-/* ── GALLERY SLIDE zoom effect ── */
-.slide {
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    transform: scale(1.04);
-}
-.slide.active {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* ── SLIDESHOW glow pulse ── */
-.slideshow {
-    animation: slideshowGlow 3s ease-in-out infinite alternate;
-}
-@keyframes slideshowGlow {
-    0% {
-        box-shadow:
-            0 0 20px rgba(255,230,0,0.6),
-            0 0 40px rgba(255,230,0,0.35),
-            0 0 60px rgba(255,230,0,0.15);
-    }
-    100% {
-        box-shadow:
-            0 0 28px rgba(255,230,0,0.9),
-            0 0 56px rgba(255,230,0,0.55),
-            0 0 100px rgba(255,230,0,0.30),
-            inset 0 0 20px rgba(255,230,0,0.08);
-    }
-}
-
-/* ── DOT active transition ── */
-.dot {
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.dot.active {
-    transform: scale(1.4);
-}
-
-/* ── CAROUSEL ITEM glow pulse ── */
-.carousel-item.active {
-    animation: carouselGlow 2s ease-in-out infinite alternate;
-}
-@keyframes carouselGlow {
-    0% {
-        box-shadow: 0 0 24px rgba(196,77,255,0.4), 0 0 48px rgba(196,77,255,0.15);
-    }
-    100% {
-        box-shadow: 0 0 36px rgba(196,77,255,0.65), 0 0 72px rgba(196,77,255,0.30);
-    }
-}
-
-/* ── FAQ smooth open/close ── */
-.faq-item {
-    transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.faq-answer {
-    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.faq-question::after {
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                color 0.3s ease;
-}
-.faq-item.open .faq-question::after {
-    transform: rotate(90deg);
+/* fade-in utility */
+.fade-in { animation: fadeIn 1s ease forwards; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -1285,7 +1023,7 @@ button:hover {
    MQ-1 │ max-width: 768px  (mobile)
    All hero offsets zeroed. Content centered. Sections stacked cleanly.
    ───────────────────────────────────────────────────────────────────────────── */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   :root { --header-h: 86px; }
 
   body { background-size: cover; background-position: center top; }
@@ -1323,14 +1061,14 @@ button:hover {
   .hero                      { min-height: min(84svh, 900px); height: auto; padding-top: calc(var(--header-h) + 22px); justify-content: center; text-align: center; }
 
   .hero-content              { max-width: 100%; width: 100%; padding: 0 var(--page-pad); }
-  .hero-pack                 { display: block; transform: translateY(-70px); }
-  .hero-content .site-logo   { width: min(88vw, 480px); max-width: 600px; height: auto; margin: 0 auto 10px; transform:translateY(-100px) scale(1.3) }
-  .hero-subtitles            { transform: none !important; margin-top: -250px; text-align: center; }
+  .hero-pack                 { display: block; transform: none !important; }
+  .hero-content .site-logo   { width: min(88vw, 480px); max-width: 480px; height: auto; margin: 0 auto 10px; transform: none !important; }
+  .hero-subtitles            { transform: none !important; margin-top: 12px; text-align: center; }
   .hero-subtitle-1           { transform: none !important; font-size: clamp(18px, 5.2vw, 30px); margin: clamp(8px, 2.5vw, 14px) 0 0; text-align: center; }
   .hero-subtitle-2           { transform: none !important; font-size: clamp(16px, 4.8vw, 26px); margin: 6px 0 0; text-align: center; }
-  .shpe-logo                 { transform: TranslateY(150px) scale(1.6); height: auto; width: min(52vw, 220px); max-width: 220px; margin: clamp(14px, 3vw, 22px) auto 0; display: block; }
-                                /*150px and 1.3 scalefor 360*/
-  .hero-apply-wrap           { /*--heroApplyX: 300px; --heroApplyY: 150px;*/ display: flex; transform:TranslateY(150px) TranslateX(0px) scale(1);}
+  .shpe-logo                 { transform: none !important; height: auto; width: min(52vw, 220px); max-width: 220px; margin: clamp(14px, 3vw, 22px) auto 0; display: block; }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; margin: clamp(12px, 3vw, 20px) auto 0; display: flex; }
 
   .hero-apply-btn.Btn-Container { font-size: clamp(26px, 7.5vw, 38px); letter-spacing: 2px; padding: 10px 8px; }
 
@@ -1408,56 +1146,25 @@ button:hover {
 
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   MQ-2 │ 768px – 1023px  (iPad Air 820, iPad Pro 834, Surface Pro 912)
+   MQ-2 │ 769px – 1023px  (iPad Air 820, iPad Pro 834, Surface Pro 912)
    Wide enough for desktop background but transforms are too extreme at this size.
    Zero everything out — centered like mobile, clean and simple.
    ───────────────────────────────────────────────────────────────────────────── */
-@media (min-width: 768px) and (max-width: 1023px) {
-
- .top-bar { padding-left: var(--page-pad); padding-right: var(--page-pad); }
-
-  .nav-pill {
-    width: 100%;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 6px 2px;
-    gap: 14px;
-    align-items: center;
-    line-height: 1;
-    margin-right: 0;
-  }
-  .nav-pill::-webkit-scrollbar { display: none; }
-
-  .nav-pill a {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    font-size: 12px;
-    letter-spacing: 1px;
-    display: inline-block;
-  }
+@media (min-width: 769px) and (max-width: 1023px) {
 
   body { background-size: cover; background-position: center top; }
 
   .social-icons-top { display: none; }
 
-  /*HERO*/
- .hero                      { min-height: min(84svh, 900px); height: auto; padding-top: calc(var(--header-h) + 22px); justify-content: center; text-align: center; }
+  .hero-pack                 { display: block; transform: none !important; }
 
-  .hero-content              { max-width: 100%; width: 100%; padding: 0 var(--page-pad); }
-  .hero-pack                 { display: block; transform: translateY(-70px); }
-  .hero-content .site-logo   { width: min(88vw, 480px); max-width: 600px; height: auto; margin: 0 auto 10px; transform:translateY(-100px) scale(1.5) }
-  .hero-subtitles            { transform: TranslateY(-60px) !important; margin-top: -250px; text-align: center; }
-  .hero-subtitle-1           { transform: none !important; font-size: clamp(18px, 5.2vw, 30px); margin: clamp(8px, 2.5vw, 14px) 0 0; text-align: center; }
-  .hero-subtitle-2           { transform: none !important; font-size: clamp(16px, 4.8vw, 26px); margin: 6px 0 0; text-align: center; }
-  .shpe-logo                 { transform: TranslateY(150px) scale(1.6); height: auto; width: min(52vw, 220px); max-width: 220px; margin: clamp(14px, 3vw, 22px) auto 0; display: block; }
-                                /*150px and 1.3 scalefor 360*/
-  .hero-apply-wrap           { /*--heroApplyX: 300px; --heroApplyY: 150px;*/ display: flex; transform:TranslateY(150px) TranslateX(0px) scale(1);}
+  .hero-content .site-logo   { width: min(80vw, 520px); max-width: 520px; height: auto; margin: 0 auto 10px; transform: none !important; }
+  .hero-subtitles            { transform: none !important; margin-top: 12px; text-align: center; }
+  .hero-subtitle-1           { transform: none !important; font-size: clamp(20px, 3vw, 30px); margin: 12px 0 0; text-align: center; }
+  .hero-subtitle-2           { transform: none !important; font-size: clamp(18px, 2.8vw, 28px); margin: 6px 0 0; text-align: center; }
+  .shpe-logo                 { transform: none !important; height: auto; width: min(40vw, 260px); max-width: 260px; margin: 20px auto 0; display: block; }
 
-
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; margin: 20px auto 0; display: flex; }
 
   .hero-apply-btn.Btn-Container { font-size: clamp(28px, 4.5vw, 42px); }
 
@@ -1474,240 +1181,102 @@ button:hover {
 
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   OVERRIDE │ 1024px to 1439px
-   Paste at the very bottom of your CSS, above the reduced-motion rule.
+   MQ-3 │ 1024px – 1279px  (small desktop)
+   Subtitle Y pulled back to -260px to prevent overlap with logo as wrapper
+   shifts right up to +300px at the narrow end of this range.
+   At 1280px → wrapper ~+115px,  at 1024px → wrapper ~+300px
    ───────────────────────────────────────────────────────────────────────────── */
-
-
-/*-------------- 1024px – 1231px--------- */
-@media (min-width: 1024px) and (max-width: 1231px) {
-
-
-    /*HIDE SOCIAL ICONS*/
-    .social-icons-top { display: none; }
-
-
-  .hero-content .site-logo {
-    transform: translateX(-150px) translateY(-10px) scale(1.4);
-  }
-  .hero-subtitle-1 {
-    transform:
-      translateX(clamp(125px, calc(125px + (1232px - 100vw) * 0.1202), 150px))
-      translateY(clamp(70px, calc(70px + (1232px - 100vw) * 0.1923), 110px))
-      scale(1.4);
-  }
-  .hero-subtitle-2 {
-    transform:
-      translateX(clamp(5px, calc(5px + (1232px - 100vw) * 0.2163), 50px))
-      translateY(clamp(70px, calc(70px + (1232px - 100vw) * 0.1923), 110px))
-      scale(1.4);
-  }
-  .shpe-logo {
-    transform:
-      translateX(clamp(-320px, calc(-320px + (1232px - 100vw) * 0.0481), -310px))
-      translateY(clamp(100px, calc(100px + (1232px - 100vw) * 0.1442), 130px))
-      scale(6.2);
-  }
-  .hero-apply-wrap {
-    --heroApplyX: clamp(400px, calc(450px - (1232px - 100vw) * 0.2404), 450px);
-    --heroApplyY: 300px;
-  }
-}
-
-/*------------- 1232 TO 1439-------------*/
-
-
-
-
-/*------------- 1232 TO 1439 (FINAL) -------------*/
-@media (min-width: 1232px) and (max-width: 1439px) {
-
-  /* ✅ IMPORTANT: move the *whole* subtitles group (prevents overlap as width shrinks) */
-  .hero-subtitles{
-    transform:
-      translateX(clamp(-405px, calc(-405px + (1439px - 100vw) * 0.4106), -320px))
-      translateY(clamp(-390px, calc(-390px + (1439px - 100vw) * 0.3382), -320px));
-  }
-
-  .hero-content .site-logo {
-    transform:
-      translateX(clamp(-235px, calc(-235px + (1439px - 100vw) * 0.4106), -150px))
-      translateY(-10px)
-      scale(clamp(1.2, calc(1.2 + (1439px - 100vw) * 0.000966), 1.4));
-  }
-
-  .hero-subtitle-1 {
-    transform:
-      translateX(clamp(0px, calc(0px + (1439px - 100vw) * 0.6039), 125px))
-      translateY(clamp(0px, calc(0px + (1439px - 100vw) * 0.3382), 70px))
-      scale(clamp(1.0, calc(1.0 + (1439px - 100vw) * 0.001932), 1.4));
-  }
-
-  .hero-subtitle-2 {
-    transform:
-      translateX(clamp(-100px, calc(-100px + (1439px - 100vw) * 0.5072), 5px))
-      translateY(clamp(-15px, calc(-15px + (1439px - 100vw) * 0.4106), 70px))
-      scale(clamp(1.0, calc(1.0 + (1439px - 100vw) * 0.001932), 1.4));
-  }
-
-  .shpe-logo {
-    transform:
-      translateX(clamp(-380px, calc(-380px + (1439px - 100vw) * 0.2899), -320px))
-      translateY(clamp(-80px, calc(-80px + (1439px - 100vw) * 0.8696), 100px))
-      scale(6.2);
-  }
-
-  .hero-apply-wrap {
-    --heroApplyX: 450px;
-    --heroApplyY: clamp(170px, calc(170px + (1439px - 100vw) * 0.6280), 300px);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-@media (min-width: 1232px) and (max-width: 1439px) {
-  .hero-content .site-logo {
-    transform:
-      translateX(clamp(-235px, calc(-235px + (1439px - 100vw) * 0.4106), -150px))
-      translateY(-10px)
-      scale(clamp(1.2, calc(1.2 + (1439px - 100vw) * 0.000966), 1.4));
-  }
-  .hero-subtitle-1 {
-    transform:
-      translateX(clamp(0px, calc(0px + (1439px - 100vw) * 0.6039), 125px))
-      translateY(clamp(0px, calc(0px + (1439px - 100vw) * 0.3382), 70px))
-      scale(clamp(1.0, calc(1.0 + (1439px - 100vw) * 0.001932), 1.4));
-  }
-  .hero-subtitle-2 {
-    transform:
-      translateX(clamp(-100px, calc(-100px + (1439px - 100vw) * 0.5072), 5px))
-      translateY(clamp(-15px, calc(-15px + (1439px - 100vw) * 0.4106), 70px))
-      scale(clamp(1.0, calc(1.0 + (1439px - 100vw) * 0.001932), 1.4));
-  }
-  .shpe-logo {
-    transform:
-      translateX(clamp(-380px, calc(-380px + (1439px - 100vw) * 0.2899), -320px))
-      translateY(clamp(-80px, calc(-80px + (1439px - 100vw) * 0.8696), 100px))
-      scale(6.2);
-  }
-  .hero-apply-wrap {
-    --heroApplyX: 450px;
-    --heroApplyY: clamp(170px, calc(170px + (1439px - 100vw) * 0.6280), 300px);
-  }
-}
-*/
-
-
-
-
-
-
-
-/*--------------------ADJUST FOR 1280-1340-------------------
-@media (min-width: 1280px) and (max-width: 1340px){
-  .hero-content .site-logo {
-    transform: translateX(-150px) translateY(-10px) scale(1.4);
-  }
-  .hero-subtitle-1 {
-    transform:
-      translateX(clamp(125px, calc(125px + (1232px - 100vw) * 0.1202), 150px))
-      translateY(clamp(70px, calc(70px + (1232px - 100vw) * 0.1923), 110px))
-      scale(1.4);
-  }
-  .hero-subtitle-2 {
-    transform:
-      translateX(clamp(5px, calc(5px + (1232px - 100vw) * 0.2163), 50px))
-      translateY(clamp(70px, calc(70px + (1232px - 100vw) * 0.1923), 110px))
-      scale(1.4);
-  }
-  .shpe-logo {
-    transform:
-      translateX(clamp(-320px, calc(-320px + (1232px - 100vw) * 0.0481), -310px))
-      translateY(clamp(100px, calc(100px + (1232px - 100vw) * 0.1442), 130px))
-      scale(6.2);
-  }
-  .hero-apply-wrap {
-    --heroApplyX: clamp(400px, calc(450px - (1232px - 100vw) * 0.2404), 450px);
-    --heroApplyY: 300px;
-  }
-
-}
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ─────────────────────────────────────────────────────────────────────────────
-   MQ-5 │ 1440px – 1869px  (wide desktop)
-   hero-pack stays at translateX(0). All child X-offsets are vw-based so the
-   entire composition — logo, subtitles, SHPE logo, apply button — scales as
-   one rigid unit proportional to viewport width, just as it looks at 1870px.
-   Math anchor: at 1870px →  -500px = -26.74vw | -300px = -16.04vw
-                              -103px = -5.51vw  |  550px =  29.41vw
-   ───────────────────────────────────────────────────────────────────────────── */
-@media (min-width: 1440px) and (max-width: 1869px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
 
   body { background-size: cover; background-position: center top; }
 
-  /* Pack stays centred — no rightward drift */
+  .social-icons-top { display: none; }
+
   .hero-pack {
-    transform: translateX(0px) !important;
+    display: inline-block;
+    transform: translateX(clamp(115px, calc((1200px - 100vw) * 0.72), 300px)) !important;
   }
 
-  /* Logo shifts left by the same proportion as at 1870px */
-  .hero-content .site-logo {
-    transform: translateX(-16.04vw) translateY(0px);
-  }
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-380px) translateY(-280px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-71px) translateY(-10px); }
+  .shpe-logo                 { transform: translateX(-250px) translateY(0px) scale(4.6); }
 
-  /* Subtitles wrapper: X and Y both scale with vw */
-  .hero-subtitles {
-    transform: translateX(-26.74vw) translateY(-26.74vw);
-  }
-
-  /* Small rightward nudge to match 1870px relative alignment */
-    .hero-subtitle-1 { transform: translateX(clamp(0px, calc(47px - (100vw - 1440px) * 0.109), 47px)) translateY(0px); }
-    .hero-subtitle-2 { transform: translateX(clamp(-100px, calc(-55px - (100vw - 1440px) * 0.1047), -55px)) translateY(-15px); }
-
-  /* SHPE logo: same -26.74vw as subtitles — mirrors apply-button behaviour */
-  .shpe-logo {
-    transform: translateX(-26.74vw) translateY(-100px) scale(6.6);
-  }
-
-  /* Apply button: 550px at 1870px = 29.41vw — stays centred as width narrows */
-  .hero-apply-wrap { --heroApplyX: 29.41vw; --heroApplyY: 120px; }
-
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; }
 }
 
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-4 │ 1280px – 1439px  (medium desktop)
+   Full -390px Y restored. Wrapper finishes drifting from ~+115px to 0 at 1440.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1280px) and (max-width: 1439px) {
+
+  body { background-size: cover; background-position: center top; }
+
+  .hero-pack {
+    display: inline-block;
+    transform: translateX(clamp(0px, calc((1440px - 100vw) * 0.72), 115px)) !important;
+  }
+
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-395px) translateY(-350px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-90px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(-300px) translateY(-100px) scale(6.6); }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; }
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   OVERRIDE │ 1366px  (1366×768 pin)
+   Paste at the very bottom of your CSS, above the reduced-motion rule.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1366px) and (max-width: 1439px) {
+
+  .hero-pack {
+    transform: translateX(55px) !important;
+  }
+
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-405px) translateY(-370px); }
+  .hero-subtitle-1           { transform: translateX(3px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-95px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(-350px) translateY(0px) scale(6.6); }
+
+  .hero-apply-wrap           { --heroApplyX: 0px; --heroApplyY: 0px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MQ-3 │ min-width: 1440px  (large desktop → 1920+)
+   At 1440px → translateX(240px). Smoothly slides to 0px at 1920px.
+   Internal transforms IDENTICAL to MQ-2 — no cascade conflict.
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1440px) {
+
+  body { background-size: cover; background-position: center top; }
+
+  /*
+   * At 1440px → (1920-1440)*0.5 = 240px
+   * At 1920px → (1920-1920)*0.5 =   0px  ← perfect on your screen
+   */
+  .hero-pack {
+    transform: translateX(clamp(0px, calc((1920px - 100vw) * 0.5), 240px)) !important;
+  }
+
+  /* ⚠️ IDENTICAL to MQ-2 — no cascade jump between 1440–1919px */
+  .hero-content .site-logo  { transform: translateX(-300px) translateY(0px); }
+  .hero-subtitles            { transform: translateX(-405px) translateY(-390px); }
+  .hero-subtitle-1           { transform: translateX(0px) translateY(0px); }
+  .hero-subtitle-2           { transform: translateX(-103px) translateY(-15px); }
+  .shpe-logo                 { transform: translateX(50px) translateY(-100px) scale(6.6); }
+
+  /* Center button by cancelling parent's X offset; push down with Y */
+  .hero-apply-wrap           { --heroApplyX: 405px; --heroApplyY: 60px; }
+
+}
 
 /* ─────────────────────────────────────────────────────────────────────────────
    OVERRIDE │ min-width: 1920px  (1920×1080 pin)
@@ -1737,23 +1306,6 @@ button:hover {
 
 }
 
-/*APPLY BUTTON EFFECT ALWAYS ACTIVE ON MOBILE AND IPAD*/
-@media (max-width: 1023px) {
-  .hero-apply-btn .icon-Container { opacity: 1; transform: translateX(0); }
-  .hero-apply-btn .arrow { animation: dottedArrow 0.9s ease-in-out infinite; }
-  .hero-apply-btn.Btn-Container {
-    text-shadow:
-      0 0 18px rgba(255,236,78,0.9),
-      0 0 40px rgba(255,236,78,0.8),
-      0 0 80px rgba(255,236,78,0.6);
-
-  }
-
-.hero-apply-btn.Btn-Container   { flex-direction: column; gap: 4px; }
-.hero-apply-btn .icon-Container { opacity: 1 !important; transform: rotate(90deg) translateX(0) !important; }
-.hero-apply-btn .arrow          { animation: dottedArrow 0.9s ease-in-out infinite !important; }
-
-}
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
