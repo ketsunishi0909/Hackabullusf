@@ -403,11 +403,11 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: clamp(40px, 8vw, 120px);
+    gap: 0;
     width: 100%;
     position: relative;
     z-index: 1;
-   padding: 0 clamp(20px, 5vw, 80px) 0 80px;
+    padding: 0 clamp(20px, 5vw, 80px) 0 80px;
 }
 .tracks-left {
     flex: 0 0 auto;
@@ -420,8 +420,7 @@ button:hover {
 .track-title {
     text-align: left !important;
     margin: 0;
-    align-self: flex-start;
-    margin-top: 200px;
+    align-self: center;
 }
 .tracks-title {
     font-family: 'HK Modular', 'Orbitron', sans-serif;
