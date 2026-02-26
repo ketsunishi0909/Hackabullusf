@@ -400,6 +400,7 @@ button:hover {
 .tracks-inner {
     max-width: 1200px;
     margin: 0 auto;
+    margin-left: -60px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -410,7 +411,6 @@ button:hover {
     z-index: 1;
     padding: 0 clamp(20px, 5vw, 80px) 0 0;
 }
-
 .tracks-left {
     flex: 0 0 auto;
     display: flex;
