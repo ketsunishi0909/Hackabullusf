@@ -925,12 +925,12 @@ button:hover {
 }
 
 .faq-item.open .faq-question {
-    color: #39ff14;
+    color: #ff2d78;
 }
 
 .faq-item.open .faq-question::after {
     content: '\2212';
-    color: #39ff14;
+    color: #ff2d78;
     transform: rotate(180deg);
 }
 
@@ -964,7 +964,7 @@ button:hover {
 }
 
 .faq-answer a {
-    color: #39ff14;
+    color: #ff2d78;
     text-decoration: none;
     font-weight: 600;
     transition: text-shadow 0.3s ease;
