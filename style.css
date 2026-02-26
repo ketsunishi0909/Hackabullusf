@@ -419,11 +419,11 @@ button:hover {
     text-align: left;
     margin-right: auto;
 }
-
 .track-title {
     text-align: left !important;
     margin: 0;
     align-self: flex-start;
+    margin-top: 200px;
 }
 .tracks-title {
     font-family: 'HK Modular', 'Orbitron', sans-serif;
