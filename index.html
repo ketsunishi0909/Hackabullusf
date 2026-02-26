@@ -28,7 +28,7 @@
         <a href="https://www.instagram.com/hackabull/" target="_blank" rel="noopener">
             <img src="images/instalogo.png" alt="Instagram">
         </a>
-        <a href="https://www.linkedin.com/company/hackabull/" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/company/shpe-usf/" target="_blank" rel="noopener">
             <img src="images/linkedinlogo.png" alt="LinkedIn">
         </a>
     </div>
@@ -41,9 +41,11 @@
         <a href="https://luma.com/d7jhn2yp" target="_blank" rel="noopener" class="apply-btn">APPLY NOW</a>
     </nav>
 
+    <!-- MLH BADGE (commented out)
     <a class="mlh" href="https://mlh.io" target="_blank">
         <img src="images/mlh-badge.png" alt="MLH 2026">
     </a>
+    -->
 </div>
 
 
@@ -116,19 +118,19 @@
 <!-- ABOUT -->
 <section id="about" class="about">
     <div class="about-inner">
-        <h2 class="section-title glow">ABOUT US</h2>
-        <p class="lead">Join Hackabull 2026, the seventh edition of USF's flagship 36-hour hackathon where innovation meets community. 
+        <h2 class="section-title glow reveal">ABOUT US</h2>
+        <p class="lead reveal">Join Hackabull 2026, the seventh edition of USF's flagship 36-hour hackathon where innovation meets community. 
             Collaborate with passionate hackers, turn bold ideas into real projects, and explore cutting-edge technology through workshops, mentorship, and sponsor challenges.
         </p>
 
-        <div class="about-pills">
+        <div class="about-pills reveal stagger-children">
             <button class="pill-btn">36-hours event</button>
             <button class="pill-btn">All meals provided</button>
-            <button class="pill-btn">+2000$ in Prizes</button>
-            <button class="pill-btn">300+ hackers</button>
+            <!-- <button class="pill-btn">+2000$ in Prizes</button> -->
+            <button class="pill-btn">200+ hackers</button>
         </div>
 
-        <p class="faq-link">Want to learn more? Check our <a href="#faq">FAQ</a></p>
+        <p class="faq-link reveal">Want to learn more? Check our <a href="#faq">FAQ</a></p>
     </div>
 </section>
 
@@ -138,7 +140,9 @@
 <!-- TRACKS -->
 <section id="tracks" class="tracks">
     <div class="tracks-inner">
-        <h2 class="section-title glow track-title">TRACKS</h2>
+        <div class="tracks-left">
+            <h2 class="section-title glow track-title">TRACKS</h2>
+        </div>
         <div class="carousel-container">
             <div class="carousel" id="carousel">
                 <div class="carousel-item" data-index="0">
@@ -164,9 +168,9 @@
 <!-- GALLERY -->
 <section id="gallery" class="gallery">
     <div class="gallery-inner">
-        <h2 class="section-title glow">GALLERY</h2>
-        <p class="gallery-sub">Check out our 2025 hackathons!</p>
-        <div class="slideshow-wrapper">
+        <h2 class="section-title glow reveal">GALLERY</h2>
+        <p class="gallery-sub reveal">Check out our 2025 hackathons!</p>
+        <div class="slideshow-wrapper reveal-scale">
             <div class="slideshow">
                 <img src="images/hackjam1.JPG" alt="Hackjam 2025" class="slide active">
                 <img src="images/hackjam2.JPG" alt="Hackjam 2025" class="slide">
@@ -186,9 +190,11 @@
 <!-- SPONSORS -->
 <section id="sponsors" class="sponsors">
     <div class="sponsors-inner">
-        <h2 class="section-title glow">Sponsors & Partners</h2>
+        <h2 class="section-title glow reveal">Sponsors & Partners</h2>
         <div class="sponsors-grid">
+            <!-- MLH SPONSOR CARD (commented out)
             <div class="sponsor-card"><img src="images/mlhsponsor.png" alt="MLH"></div>
+            -->
             <div class="sponsor-card"><img src="images/microsoftsponsor.png" alt="Microsoft"></div>
             <div class="sponsor-card"><img src="images/Velerasponsor.png" alt="Velera"></div>
             <div class="sponsor-card"><img src="images/PureButtonsponsor.png" alt="Pure Button"></div>
@@ -201,7 +207,9 @@
     <!-- Marquee ticker -->
     <div class="sponsors-ticker">
         <div class="ticker-track">
+            <!-- MLH TICKER ITEM (commented out)
             <div class="ticker-item"><img src="images/mlhsponsor.png" alt="MLH"></div>
+            -->
             <div class="ticker-item"><img src="images/microsoftsponsor.png" alt="Microsoft"></div>
             <div class="ticker-item"><img src="images/Velerasponsor.png" alt="Velera"></div>
             <div class="ticker-item"><img src="images/PureButtonsponsor.png" alt="Pure Button"></div>
@@ -209,7 +217,9 @@
             <div class="ticker-item"><img src="images/sasesponsor.png" alt="SASE"></div>
             <div class="ticker-item"><img src="images/wicsesponsor.png" alt="WICSE"></div>
             <!-- Duplicate for seamless loop -->
+            <!-- MLH TICKER ITEM DUPLICATE (commented out)
             <div class="ticker-item"><img src="images/mlhsponsor.png" alt="MLH"></div>
+            -->
             <div class="ticker-item"><img src="images/microsoftsponsor.png" alt="Microsoft"></div>
             <div class="ticker-item"><img src="images/Velerasponsor.png" alt="Velera"></div>
             <div class="ticker-item"><img src="images/PureButtonsponsor.png" alt="Pure Button"></div>
@@ -223,48 +233,75 @@
 <!-- FAQ -->
 <section id="faq" class="faq">
     <div class="faq-inner">
-        <h2 class="section-title glow">FAQ</h2>
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">What is a hackathon?</button>
-                <div class="faq-answer">A hackathon is a collaborative event where participants build projects in a limited amount of time.</div>
+        <h2 class="section-title glow reveal">FAQ</h2>
+
+        <!-- Category tabs -->
+        <div class="faq-tabs reveal" role="tablist">
+            <button class="faq-tab active" data-cat="logistics" role="tab" aria-selected="true">Food &amp; Logistics</button>
+            <button class="faq-tab" data-cat="preparation" role="tab">Preparation</button>
+            <button class="faq-tab" data-cat="volunteering" role="tab">Volunteering &amp; Sponsors</button>
+        </div>
+
+        <div class="faq-list stagger-children">
+
+            <!-- FOOD & LOGISTICS -->
+            <div class="faq-item reveal" data-cat="logistics">
+                <button class="faq-question" aria-expanded="false">Will food be provided?</button>
+                <div class="faq-answer">Yes! Food, snacks, and drinks will be provided all throughout the event.</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Who can participate?</button>
-                <div class="faq-answer">The event is open to students of all majors and experience levels. Beginners are welcome.</div>
+            <div class="faq-item reveal" data-cat="logistics">
+                <button class="faq-question" aria-expanded="false">Where can I sleep?</button>
+                <div class="faq-answer">Rooms will be provided for hackers to rest when needed.</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">How do I register?</button>
-                <div class="faq-answer">Registration is completed online through our website.</div>
+            <div class="faq-item reveal" data-cat="logistics">
+                <button class="faq-question" aria-expanded="false">Do I need to stay for the entire event?</button>
+                <div class="faq-answer">No, you are free to come and go as needed during the event. However, we encourage you to stay so you don't miss any of the fun!</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Do I need a team to join?</button>
-                <div class="faq-answer">No. You can join solo and form a team at the event.</div>
+            <div class="faq-item reveal" data-cat="logistics">
+                <button class="faq-question" aria-expanded="false">Can I register on the day of HackaBull VII?</button>
+                <div class="faq-answer">Yes, day-of registration will be available. However, we recommend registering early to secure your spot.</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">What is the team size limit?</button>
-                <div class="faq-answer">Teams can have up to 4 members.</div>
+            <div class="faq-item reveal" data-cat="logistics">
+                <button class="faq-question" aria-expanded="false">I have more questions — how can I ask them?</button>
+                <div class="faq-answer">Feel free to ask on the <a href="https://discord.gg/GTu5DKZ2" target="_blank" rel="noopener">HackaBull Discord</a>!</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">What can we build?</button>
-                <div class="faq-answer">Any project built during the hackathon that follows the event rules.</div>
+
+            <!-- PREPARATION FOR HACKERS -->
+            <div class="faq-item reveal" data-cat="preparation" style="display:none">
+                <button class="faq-question" aria-expanded="false">Do I need a team?</button>
+                <div class="faq-answer">No, you do not need a team to participate. You can join solo and find teammates at the event. Teams are capped at 5 members.</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">What technologies can we use?</button>
-                <div class="faq-answer">Any programming language, framework, or tool is allowed.</div>
+            <div class="faq-item reveal" data-cat="preparation" style="display:none">
+                <button class="faq-question" aria-expanded="false">How can I find or join a team for HackaBull VII?</button>
+                <div class="faq-answer">You can find teammates in the <a href="https://discord.gg/GTu5DKZ2" target="_blank" rel="noopener">HackaBull Discord</a> or during the team-formation session at the start of the event.</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Is the event free?</button>
-                <div class="faq-answer">Yes. The hackathon is completely free, and food will be provided.</div>
+            <div class="faq-item reveal" data-cat="preparation" style="display:none">
+                <button class="faq-question" aria-expanded="false">Should I come with a project idea ready?</button>
+                <div class="faq-answer">No, you are not required to have a project idea beforehand. There will be time to brainstorm ideas and form teams at the start of the event.</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">How are projects judged?</button>
-                <div class="faq-answer">Projects are judged on creativity, technical skill, impact, and presentation.</div>
+            <div class="faq-item reveal" data-cat="preparation" style="display:none">
+                <button class="faq-question" aria-expanded="false">What should I bring?</button>
+                <div class="faq-answer">Bring your ID, laptop, and charger — plus any gear you want to use. If you're staying overnight, grab a blanket and your essentials. Wear comfy clothes. We've got the food and Wi-Fi covered!</div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" aria-expanded="false">Where and when is the event?</button>
-                <div class="faq-answer">The hackathon will take place at USF SHPE on April 25-26, 2026.</div>
+            <div class="faq-item reveal" data-cat="preparation" style="display:none">
+                <button class="faq-question" aria-expanded="false">What if I have no experience with coding or hackathons?</button>
+                <div class="faq-answer">No experience is required! There will be a track specifically for beginners, as well as workshops and mentors at the event to help you succeed.</div>
             </div>
+
+            <!-- VOLUNTEERING & SPONSORS -->
+            <div class="faq-item reveal" data-cat="volunteering" style="display:none">
+                <button class="faq-question" aria-expanded="false">Who can volunteer at HackaBull VII?</button>
+                <div class="faq-answer">We're looking for enthusiastic volunteers to help make HackaBull VII a success! Volunteers help with registration, logistics, mentoring, and various event activities. It's a great way to be part of the hackathon community and gain experience.</div>
+            </div>
+            <div class="faq-item reveal" data-cat="volunteering" style="display:none">
+                <button class="faq-question" aria-expanded="false">Do volunteers get any perks?</button>
+                <div class="faq-answer">Yes! Volunteers receive food throughout the event and exclusive SHPE merch.</div>
+            </div>
+            <div class="faq-item reveal" data-cat="volunteering" style="display:none">
+                <button class="faq-question" aria-expanded="false">How long do volunteers need to stay?</button>
+                <div class="faq-answer">Volunteers will be assigned shifts, so you won't need to be there the entire time. We'll share the shift schedule closer to the event.</div>
+            </div>
+
         </div>
     </div>
 </section>
