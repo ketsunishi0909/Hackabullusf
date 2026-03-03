@@ -42,3 +42,7 @@ next-env.d.ts
 
 .env.local
 .DS_Store
+
+attendees.db
+attendees.db-shm
+attendees.db-wal
