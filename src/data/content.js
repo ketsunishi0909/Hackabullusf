@@ -1,7 +1,7 @@
 export const socialLinks = [
-  { href: 'https://discord.gg/GTu5DKZ2', img: 'images/discordlogo.png', alt: 'Discord' },
-  { href: 'https://www.instagram.com/hackabull/', img: 'images/instalogo.png', alt: 'Instagram' },
-  { href: 'https://www.linkedin.com/company/shpe-usf/', img: 'images/linkedinlogo.png', alt: 'LinkedIn' },
+  { href: 'https://discord.gg/GTu5DKZ2', base: 'discordlogo', ext: 'jpg', alt: 'Discord' },
+  { href: 'https://www.instagram.com/hackabull/', base: 'instalogo', ext: 'jpg', alt: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/shpe-usf/', base: 'linkedinlogo', ext: 'jpg', alt: 'LinkedIn' },
 ];
 
 export const navLinks = [
@@ -28,25 +28,29 @@ export const tracksContent = [
   {
     title: 'Tech for good',
     desc: 'Build technology that creates positive social impact and helps communities around the world.',
-    img: 'images/techforgood.png',
+    base: 'techforgood',
+    ext: 'jpg',
     alt: 'Tech for good',
   },
   {
     title: 'Art design',
     desc: 'Combine creativity and code to build visually stunning and innovative digital experiences.',
-    img: 'images/artdesign.png',
+    base: 'artdesign',
+    ext: 'jpg',
     alt: 'Art design',
   },
   {
     title: 'Hello world',
     desc: 'Perfect for beginners — build your first project and take your first steps into hacking.',
-    img: 'images/helloworld.png',
+    base: 'helloworld',
+    ext: 'jpg',
     alt: 'Hello world',
   },
   {
     title: 'Hardware',
     desc: 'Get hands-on with physical computing, circuits, and embedded systems to build real devices.',
-    img: 'images/hardware.png',
+    base: 'hardware',
+    ext: 'jpg',
     alt: 'Hardware',
   },
 ];
@@ -56,23 +60,23 @@ export const galleryContent = {
   subtitle: 'Check out our 2025 hackathons!',
   caption: 'HACKABULL 2025 & HACKJAM 2025',
   slides: [
-    { img: 'images/hackjam1.JPG', alt: 'Hackjam 2025' },
-    { img: 'images/hackjam2.JPG', alt: 'Hackjam 2025' },
-    { img: 'images/hackjam3.JPG', alt: 'Hackjam 2025' },
-    { img: 'images/hackjam4.JPG', alt: 'Hackjam 2025' },
-    { img: 'images/hackjam5.JPG', alt: 'Hackjam 2025' },
+    { base: 'hackjam1', alt: 'Hackjam 2025' },
+    { base: 'hackjam2', alt: 'Hackjam 2025' },
+    { base: 'hackjam3', alt: 'Hackjam 2025' },
+    { base: 'hackjam4', alt: 'Hackjam 2025' },
+    { base: 'hackjam5', alt: 'Hackjam 2025' },
   ],
 };
 
 export const sponsorsContent = {
   title: 'Sponsors & Partners',
   grid: [
-    { img: 'images/microsoftsponsor.png', alt: 'Microsoft' },
-    { img: 'images/Velerasponsor.png', alt: 'Velera' },
-    { img: 'images/PureButtonsponsor.png', alt: 'Pure Button' },
-    { img: 'images/robobullssponsor.png', alt: 'Robobulls' },
-    { img: 'images/sasesponsor.png', alt: 'SASE' },
-    { img: 'images/wicsesponsor.png', alt: 'WICSE' },
+    { base: 'microsoftsponsor', ext: 'jpg', alt: 'Microsoft' },
+    { base: 'Velerasponsor', ext: 'jpg', alt: 'Velera' },
+    { base: 'PureButtonsponsor', ext: 'jpg', alt: 'Pure Button' },
+    { base: 'robobullssponsor', ext: 'jpg', alt: 'Robobulls' },
+    { base: 'sasesponsor', ext: 'jpg', alt: 'SASE' },
+    { base: 'wicsesponsor', ext: 'jpg', alt: 'WICSE' },
   ],
 };
 

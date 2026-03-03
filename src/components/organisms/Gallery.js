@@ -1,5 +1,6 @@
 import { html, useEffect, useRef, useState } from '../../lib/html.js';
 import SectionTitle from '../atoms/SectionTitle.js';
+import ResponsiveImage from '../atoms/ResponsiveImage.js';
 
 const Gallery = ({ content }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,10 +35,12 @@ const Gallery = ({ content }) => {
         <div className="slideshow-wrapper reveal-scale">
           <div className="slideshow">
             ${slides.map((slide, index) => html`
-              <img
-                src=${slide.img}
+              <${ResponsiveImage}
+                base=${slide.base}
                 alt=${slide.alt}
                 className=${`slide ${index === currentIndex ? 'active' : ''}`.trim()}
+                imgClassName=\"slide-img\"
+                sizes=\"(max-width: 768px) 100vw, 600px\"
               />
             `)}
           </div>

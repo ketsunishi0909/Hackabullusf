@@ -9,3 +9,6 @@ build
 .env.production.local
 
 src/.DS_Store
+scripts/optimize-images.js
+.DS_Store
+**/.DS_Store

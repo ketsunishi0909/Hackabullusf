@@ -1,5 +1,6 @@
 import { html } from '../../lib/html.js';
 import SectionTitle from '../atoms/SectionTitle.js';
+import ResponsiveImage from '../atoms/ResponsiveImage.js';
 
 const Sponsors = ({ content }) => html`
   <section id="sponsors" className="sponsors">
@@ -8,7 +9,13 @@ const Sponsors = ({ content }) => html`
       <div className="sponsors-grid">
         ${content.grid.map((sponsor) => html`
           <div className="sponsor-card">
-            <img src=${sponsor.img} alt=${sponsor.alt} />
+            <${ResponsiveImage}
+              base=${sponsor.base}
+              alt=${sponsor.alt}
+              fallbackExt=${sponsor.ext}
+              widths=${[320, 480, 768]}
+              sizes="(max-width: 768px) 50vw, 260px"
+            />
           </div>
         `)}
       </div>
@@ -17,7 +24,15 @@ const Sponsors = ({ content }) => html`
     <div className="sponsors-ticker">
       <div className="ticker-track">
         ${content.grid.concat(content.grid).map((sponsor) => html`
-          <div className="ticker-item"><img src=${sponsor.img} alt=${sponsor.alt} /></div>
+          <div className="ticker-item">
+            <${ResponsiveImage}
+              base=${sponsor.base}
+              alt=${sponsor.alt}
+              fallbackExt=${sponsor.ext}
+              widths=${[320, 480]}
+              sizes="120px"
+            />
+          </div>
         `)}
       </div>
     </div>

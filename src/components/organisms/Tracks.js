@@ -1,5 +1,6 @@
 import { html, useEffect, useRef, useState } from '../../lib/html.js';
 import SectionTitle from '../atoms/SectionTitle.js';
+import ResponsiveImage from '../atoms/ResponsiveImage.js';
 
 const Tracks = ({ items }) => {
   const carouselRef = useRef(null);
@@ -63,7 +64,14 @@ const Tracks = ({ items }) => {
                   }
                 }}
               >
-                <img src=${item.img} alt=${item.alt} />
+                <${ResponsiveImage}
+                  base=${item.base}
+                  alt=${item.alt}
+                  fallbackExt=${item.ext}
+                  imgClassName="carousel-img"
+                  widths=${[320, 480, 768]}
+                  sizes="(max-width: 768px) 26vw, 132px"
+                />
               </div>
             `)}
           </div>

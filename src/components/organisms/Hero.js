@@ -1,11 +1,22 @@
 import { html } from '../../lib/html.js';
+import ResponsiveImage from '../atoms/ResponsiveImage.js';
 
 const Hero = ({ content }) => html`
   <section className="hero" id="home">
     <div className="hero-content fade-in">
       <div className="hero-pack">
         <h1 className="glow hero-logo-wrap">
-          <img src="images/hackabull_logo.png" alt="HackaBull logo" className="site-logo" />
+          <${ResponsiveImage}
+            base="hackabull_logo"
+            alt="HackaBull logo"
+            fallbackExt="jpg"
+            className="site-logo-wrap"
+            imgClassName="site-logo"
+            widths=${[320, 480, 768, 1024, 1440, 1920]}
+            sizes="(max-width: 768px) 88vw, 56vw"
+            loading="eager"
+            fetchpriority="high"
+          />
         </h1>
         <div className="hero-subtitles">
           <div className="hero-tagline hero-subtitle-1 text-shine-white">
@@ -49,7 +60,15 @@ const Hero = ({ content }) => html`
         </div>
       </div>
       <a href="https://www.shpeusf.com" target="_blank" rel="noopener" className="shpe-logo-link">
-        <img src="images/SHPE_logo.png" alt="SHPE" className="shpe-logo" />
+        <${ResponsiveImage}
+          base="SHPE_logo"
+          alt="SHPE"
+          fallbackExt="jpg"
+          imgClassName="shpe-logo"
+          widths=${[320, 480, 768]}
+          sizes="(max-width: 768px) 52vw, 200px"
+          loading="eager"
+        />
       </a>
     </div>
   </section>
