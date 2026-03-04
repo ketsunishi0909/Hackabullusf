@@ -19,6 +19,16 @@ function getDb(): Database.Database {
         created_at TEXT DEFAULT (datetime('now'))
       )
     `);
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS checkins (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        attendee_id TEXT NOT NULL,
+        type TEXT NOT NULL,
+        checked_in_at TEXT NOT NULL,
+        UNIQUE(attendee_id, type),
+        FOREIGN KEY(attendee_id) REFERENCES attendees(id)
+      )
+    `);
   }
   return db;
 }
