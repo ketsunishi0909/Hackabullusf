@@ -9,10 +9,15 @@ const ScannerView = dynamic(() => import('@/components/ScannerView'), {
 });
 
 interface ScannedAttendee {
+  id: string;
   name: string;
   email: string;
-  checked_in_at: string | null;
-  check_in_type?: 'arrival' | 'food1' | 'food2';
+  checkins?: {
+    arrival?: string;
+    food1?: string;
+    food2?: string;
+  };
+  lastAttemptType?: 'arrival' | 'food1' | 'food2';
   alreadyCheckedIn?: boolean;
 }
 
@@ -97,6 +102,33 @@ export default function AdminDashboard({ userImage }: { userImage?: string }) {
   }, [searchOpen, attendeesCache]);
 
   useEffect(() => {
+    if (!lastScan?.id) return;
+
+    const currentId = lastScan.id;
+    const ensureDetails = async () => {
+      let records = attendeesCache;
+      if (!records) {
+        try {
+          const res = await fetch('/api/attendees');
+          records = (await res.json()) as AttendeeRecord[];
+          setAttendeesCache(records);
+        } catch {
+          return;
+        }
+      }
+      const record = records.find((a) => a.id === currentId);
+      if (!record) return;
+      setLastScan((prev) =>
+        prev && prev.id === currentId
+          ? { ...prev, checkins: record.checkins ?? {} }
+          : prev
+      );
+    };
+
+    ensureDetails();
+  }, [checkInType, lastScan?.id, attendeesCache]);
+
+  useEffect(() => {
     if (!searchOpen) return;
     if (!attendeesCache) {
       setSearchResults([]);
@@ -151,20 +183,27 @@ export default function AdminDashboard({ userImage }: { userImage?: string }) {
 
         if (res.status === 409) {
           setLastScan({
+            id: payload.id,
             name: payload.name,
             email: payload.email,
-            checked_in_at: result.checked_in_at ?? null,
-            check_in_type: result.type ?? checkInType,
+            checkins: {
+              [checkInType]: result.checked_in_at ?? null,
+            },
+            lastAttemptType: result.type ?? checkInType,
             alreadyCheckedIn: true,
           });
         } else if (!res.ok) {
           setScanError(result.error ?? 'Check-in failed');
         } else {
           setLastScan({
+            id: payload.id,
             name: result.name,
             email: result.email,
-            checked_in_at: result.checked_in_at,
-            check_in_type: result.check_in_type ?? checkInType,
+            checkins: {
+              [result.check_in_type ?? checkInType]: result.checked_in_at ?? null,
+            },
+            lastAttemptType: result.check_in_type ?? checkInType,
+            alreadyCheckedIn: false,
           });
         }
       } catch {
@@ -255,9 +294,11 @@ export default function AdminDashboard({ userImage }: { userImage?: string }) {
               <AttendeeCard
                 name={lastScan.name}
                 email={lastScan.email}
-                checkedInAt={lastScan.checked_in_at}
-                checkInType={lastScan.check_in_type ?? checkInType}
-                alreadyCheckedIn={lastScan.alreadyCheckedIn}
+                checkedInAt={lastScan.checkins?.[checkInType] ?? null}
+                checkInType={checkInType}
+                alreadyCheckedIn={
+                  lastScan.alreadyCheckedIn && lastScan.lastAttemptType === checkInType
+                }
                 checkedInByImage={lastScan.alreadyCheckedIn ? undefined : userImage}
               />
             )}

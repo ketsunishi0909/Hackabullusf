@@ -23,17 +23,7 @@ export default function CheckedInPage() {
     fetch('/api/attendees')
       .then((r) => r.json())
       .then((data: Attendee[]) => {
-        const checked = data
-          .filter((a) => a.checkins?.arrival)
-          .sort((a, b) => {
-            if (!a.checkins?.arrival) return 1;
-            if (!b.checkins?.arrival) return -1;
-            return (
-              new Date(b.checkins.arrival).getTime() -
-              new Date(a.checkins.arrival).getTime()
-            );
-          });
-        setAttendees(checked);
+        setAttendees(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
