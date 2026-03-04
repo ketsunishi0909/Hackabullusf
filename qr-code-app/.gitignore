@@ -46,3 +46,5 @@ next-env.d.ts
 attendees.db
 attendees.db-shm
 attendees.db-wal
+
+../.DS_Store
