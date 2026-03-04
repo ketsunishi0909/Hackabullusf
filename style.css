@@ -32,7 +32,7 @@ a, button { touch-action: manipulation; }
 body {
     margin: 0;
     padding: 0;
-    background-image: url('images/imagebackgroundhackabull.png');
+    background-image: url('images/imagebackgroundhackabull.webp');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -1182,18 +1182,26 @@ button:hover {
   .pill-btn    { width: 100%; max-width: 400px; padding: 12px 18px; font-size: 14px; }
 
   .tracks-inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 26px;
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0 auto;
-    width: 100%;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 26px !important;
+    text-align: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
-  .tracks-left               { align-items: center; text-align: center; justify-content: center; width: 100%; }
-  .track-title               { text-align: center !important; margin: 0 auto !important; align-self: center; }
+  .tracks-left {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .track-title { text-align: center !important; margin: 0 auto !important; align-self: center !important; }
 
   .carousel-container { padding-left: 0 !important; gap: 20px; }
 
@@ -1227,8 +1235,33 @@ button:hover {
     margin: 20px auto 0;
   }
 
-  .sponsor-card img                 { height: 56px; transform: none; }
-  .sponsor-card:nth-child(5) img    { transform: scale(1.4); }
+
+
+  .sponsor-card img[alt="Microsoft"] {
+    transform: scale(1.25);
+  }
+
+  .sponsor-card img[alt="Velera"] {
+    transform: scale(1.05);
+  }
+
+  .sponsor-card img[alt="Pure Button"] {
+    transform: scale(0.9);
+  }
+
+  .sponsor-card img[alt="Robobulls"] {
+    transform: scale(1.5);
+  }
+
+  .sponsor-card img[alt="SASE"] {
+    transform: scale(1.2);
+  }
+
+  .sponsor-card img[alt="WICSE"] {
+    transform: scale(1.25);
+  }
+
+
 
   .faq-tabs     { flex-wrap: wrap; gap: 8px; }
   .faq-tab      { padding: 10px 16px; font-size: 12px; letter-spacing: 1px; }
@@ -1291,7 +1324,9 @@ button:hover {
 
   .hero-apply-btn.Btn-Container { font-size: clamp(28px, 4.5vw, 42px); }
 
-  .tracks-inner              { gap: 50px; margin: 0 auto; width: 100%; flex-direction: column; align-items: center; }
+  .tracks-inner              { gap: 50px !important; margin: 0 auto !important; width: 100% !important; max-width: 100% !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+  .tracks-left               { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; width: 100% !important; }
+  .track-title               { text-align: center !important; margin: 0 auto !important; align-self: center !important; }
 
   .carousel                  { width: clamp(396px, 55vw, 506px); height: clamp(396px, 55vw, 506px); }
   .carousel-item             { width: clamp(132px, 17.6vw, 165px); height: clamp(132px, 17.6vw, 165px); margin: calc(clamp(132px, 17.6vw, 165px) * -0.5) 0 0 calc(clamp(132px, 17.6vw, 165px) * -0.5); }
@@ -1300,6 +1335,32 @@ button:hover {
   .carousel-item:nth-child(2) { transform: rotateY(90deg)  translateZ(clamp(207px, 28.6vw, 264px)); }
   .carousel-item:nth-child(3) { transform: rotateY(180deg) translateZ(clamp(207px, 28.6vw, 264px)); }
   .carousel-item:nth-child(4) { transform: rotateY(270deg) translateZ(clamp(207px, 28.6vw, 264px)); }
+
+  
+  .sponsor-card img[alt="Microsoft"] {
+    transform: scale(1.25);
+  }
+
+  .sponsor-card img[alt="Velera"] {
+    transform: scale(1.05);
+  }
+
+  .sponsor-card img[alt="Pure Button"] {
+    transform: scale(0.9);
+  }
+
+  .sponsor-card img[alt="Robobulls"] {
+    transform: scale(1.5);
+  }
+
+  .sponsor-card img[alt="SASE"] {
+    transform: scale(1.2);
+  }
+
+  .sponsor-card img[alt="WICSE"] {
+    transform: scale(1.25);
+  }
+
 }
 
 
