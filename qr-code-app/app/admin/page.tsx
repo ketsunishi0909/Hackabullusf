@@ -10,7 +10,10 @@ export default async function AdminPage() {
   }
 
   return (
-    <main className="h-dvh flex flex-col p-4">
+    <main
+      className="h-dvh flex flex-col p-4"
+      style={{ paddingTop: 'calc(1rem + env(safe-area-inset-top))' }}
+    >
       <div className="max-w-lg mx-auto w-full flex flex-col flex-1 min-h-0">
         <div className="flex items-center justify-between mb-5 px-4 py-2.5 rounded-lg glass-panel shrink-0">
           <div className="flex items-center gap-3 min-w-0">
