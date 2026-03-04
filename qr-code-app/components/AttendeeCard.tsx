@@ -4,6 +4,7 @@ interface AttendeeCardProps {
   name: string;
   email: string;
   checkedInAt: string | null;
+  checkInType?: 'arrival' | 'food1' | 'food2';
   alreadyCheckedIn?: boolean;
   checkedInByImage?: string;
 }
@@ -12,10 +13,12 @@ export default function AttendeeCard({
   name,
   email,
   checkedInAt,
+  checkInType = 'arrival',
   alreadyCheckedIn,
   checkedInByImage,
 }: AttendeeCardProps) {
   const variant = alreadyCheckedIn ? 'glass-panel--warning' : 'glass-panel--success';
+  const typeLabel = checkInType === 'food1' ? 'Food 1' : checkInType === 'food2' ? 'Food 2' : 'Arrival';
 
   return (
     <div className={`glass-panel ${variant} rounded-lg px-4 py-3`} style={{ boxShadow: 'none' }}>
@@ -32,11 +35,12 @@ export default function AttendeeCard({
 
       {/* Status line */}
       {alreadyCheckedIn ? (
-        <p className="text-amber-400/80 text-xs pl-3.5">Already checked in</p>
-      ) : (
+        <p className="text-amber-400/80 text-xs pl-3.5">
+          Already checked in for {typeLabel}
+        </p>
+      ) : checkedInAt ? (
         <p className="flex items-center gap-1.5 text-emerald-400/80 text-xs pl-3.5">
-          Checked in at{' '}
-          {checkedInAt ? new Date(checkedInAt).toLocaleTimeString() : '—'}
+          {typeLabel} checked in at {new Date(checkedInAt).toLocaleTimeString()}
           {checkedInByImage && (
             <>
               {' '}by{' '}
@@ -51,6 +55,8 @@ export default function AttendeeCard({
             </>
           )}
         </p>
+      ) : (
+        <p className="text-emerald-400/80 text-xs pl-3.5">Available for check in</p>
       )}
     </div>
   );
