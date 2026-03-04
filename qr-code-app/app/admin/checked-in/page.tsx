@@ -7,24 +7,31 @@ interface Attendee {
   id: string;
   name: string;
   email: string;
-  checked_in: number;
-  checked_in_at: string | null;
+  checkins?: {
+    arrival?: string;
+    food1?: string;
+    food2?: string;
+  };
 }
 
 export default function CheckedInPage() {
   const [attendees, setAttendees] = useState<Attendee[]>([]);
   const [loading, setLoading] = useState(true);
+  const [filterType, setFilterType] = useState<'arrival' | 'food1' | 'food2'>('arrival');
 
   useEffect(() => {
     fetch('/api/attendees')
       .then((r) => r.json())
       .then((data: Attendee[]) => {
         const checked = data
-          .filter((a) => a.checked_in === 1)
+          .filter((a) => a.checkins?.arrival)
           .sort((a, b) => {
-            if (!a.checked_in_at) return 1;
-            if (!b.checked_in_at) return -1;
-            return new Date(b.checked_in_at).getTime() - new Date(a.checked_in_at).getTime();
+            if (!a.checkins?.arrival) return 1;
+            if (!b.checkins?.arrival) return -1;
+            return (
+              new Date(b.checkins.arrival).getTime() -
+              new Date(a.checkins.arrival).getTime()
+            );
           });
         setAttendees(checked);
         setLoading(false);
@@ -37,7 +44,10 @@ export default function CheckedInPage() {
   }
 
   return (
-    <main className="min-h-screen p-4">
+    <main
+      className="min-h-screen p-4"
+      style={{ paddingTop: 'calc(1rem + env(safe-area-inset-top))' }}
+    >
       <div className="max-w-lg mx-auto">
 
         {/* Header */}
@@ -64,21 +74,50 @@ export default function CheckedInPage() {
           <PageTitle fontSize={44}>Checked In</PageTitle>
           {!loading && (
             <p className="text-white/40 text-sm mt-1">
-              {attendees.length} {attendees.length === 1 ? 'attendee' : 'attendees'}
+              {attendees.filter((a) => a.checkins?.[filterType]).length}{' '}
+              {attendees.filter((a) => a.checkins?.[filterType]).length === 1
+                ? 'attendee'
+                : 'attendees'}
             </p>
           )}
+        </div>
+
+        <div className="mb-4 flex items-center justify-center gap-2 text-xs text-white/50">
+          <span className="uppercase tracking-wide text-white/35">Type</span>
+          {(['arrival', 'food1', 'food2'] as const).map((type) => (
+            <button
+              key={type}
+              onClick={() => setFilterType(type)}
+              className={`px-3 py-1 rounded-full border transition-colors ${
+                filterType === type
+                  ? 'text-white border-white/40 bg-white/10'
+                  : 'text-white/45 border-white/10 hover:text-white/70 hover:border-white/25'
+              }`}
+            >
+              {type === 'food1' ? 'Food 1' : type === 'food2' ? 'Food 2' : 'Arrival'}
+            </button>
+          ))}
         </div>
 
         {/* List */}
         {loading ? (
           <p className="text-center text-white/30 text-sm animate-pulse">Loading…</p>
-        ) : attendees.length === 0 ? (
+        ) : attendees.filter((a) => a.checkins?.[filterType]).length === 0 ? (
           <div className="text-center py-16 text-white/25 text-sm">
-            No attendees checked in yet.
+            No attendees checked in for this type yet.
           </div>
         ) : (
           <div className="flex flex-col gap-2">
-            {attendees.map((a, i) => (
+            {attendees
+              .filter((a) => a.checkins?.[filterType])
+              .sort((a, b) => {
+                const aTime = a.checkins?.[filterType];
+                const bTime = b.checkins?.[filterType];
+                if (!aTime) return 1;
+                if (!bTime) return -1;
+                return new Date(bTime).getTime() - new Date(aTime).getTime();
+              })
+              .map((a, i) => (
               <div key={a.id} className="glass-panel rounded-lg px-4 py-3 flex items-center gap-3">
                 <span className="text-white/20 text-xs w-5 text-right shrink-0">{i + 1}</span>
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
@@ -86,9 +125,12 @@ export default function CheckedInPage() {
                   <p className="text-white text-sm font-medium truncate">{a.name}</p>
                   <p className="text-white/40 text-xs truncate">{a.email}</p>
                 </div>
-                {a.checked_in_at && (
+                {a.checkins?.[filterType] && (
                   <span className="text-white/30 text-xs shrink-0">
-                    {new Date(a.checked_in_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    {new Date(a.checkins[filterType] as string).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
                   </span>
                 )}
               </div>
