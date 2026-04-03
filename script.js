@@ -216,3 +216,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+/* 
+   JUDGES SLIDESHOW  — shows 3 at a time
+ */
+(function () {
+    const track     = document.getElementById('judgesTrack');
+    const prevBtn   = document.getElementById('judgePrev');
+    const nextBtn   = document.getElementById('judgeNext');
+    const dotsWrap  = document.getElementById('judgeDots');
+    if (!track) return;
+
+    const cards     = Array.from(track.children);
+    const perPage = window.innerWidth <= 700 ? 1 : 2;
+    const total     = cards.length;
+    const pages     = Math.ceil(total / perPage);
+    let   current   = 0;
+
+    /* Build dots */
+    for (let i = 0; i < pages; i++) {
+        const d = document.createElement('button');
+        d.classList.add('judge-dot');
+        d.setAttribute('aria-label', `Judge page ${i + 1}`);
+        if (i === 0) d.classList.add('active');
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+    }
+
+    function goTo(page) {
+        current = Math.max(0, Math.min(page, pages - 1));
+
+        /* Slide the track: each card takes 1/perPage of the outer width + gap */
+        const outer = track.parentElement;
+        const outerStyles = getComputedStyle(outer);
+        const padLeft = parseFloat(outerStyles.paddingLeft) || 0;
+        const padRight = parseFloat(outerStyles.paddingRight) || 0;
+
+        const visibleW = outer.clientWidth - padLeft - padRight;
+        const gapPx = perPage > 1 ? 36 : 0;
+        const stepW = (visibleW - gapPx * (perPage - 1)) / perPage + gapPx;
+        track.style.transform = `translateX(-${current * perPage * stepW}px)`;
+
+        /* Update dots */
+        dotsWrap.querySelectorAll('.judge-dot').forEach((d, i) =>
+            d.classList.toggle('active', i === current));
+
+        /* Disable arrows at boundaries */
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === pages - 1;
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    goTo(0); // initialise
+})();
+
