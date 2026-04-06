@@ -553,13 +553,13 @@ button:hover {
 .judges-track-outer {
     flex: 1;
     overflow: hidden;
-    padding: 34px 34px 42px 34px;
-    margin: -34px -34px -42px -34px;
+    padding: 40px 34px 50px 34px;
+    margin: -40px -34px -50px -34px;
 }
 
 /* Each card */
 .judge-card {
-    flex: 0 0 calc((100% - 36px) / 2);
+    flex: 0 0 calc(50% - 18px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -695,10 +695,6 @@ button:hover {
         text-align: center;
     }
 
-    .judge-card {
-        flex: 0 0 100%;
-    }
-
     .judges-track {
         gap: 0;
     }
@@ -715,7 +711,26 @@ button:hover {
     .judge-dots {
         justify-content: center;
     }
+
+      /* Disable hover lift */
+  .judge-card:hover {
+    transform: none ;
+  }
+
+  /* Disable border + glow change */
+  .judge-card:hover .judge-img-wrap {
+    border-color: rgba(196,77,255,0.5) ;
+    box-shadow:
+      0 0 18px rgba(196,77,255,0.35),
+      0 0 40px rgba(196,77,255,0.12) ;
+  }
+
+  /* Disable image zoom */
+  .judge-card:hover .judge-img-wrap img {
+    transform: none;
+  }
 }
+
 
 
 

@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!track) return;
 
     const cards     = Array.from(track.children);
-    const perPage = window.innerWidth <= 700 ? 1 : 2;
+    const perPage = window.innerWidth <= 1024 ? 1 : 2;
     const total     = cards.length;
     const pages     = Math.ceil(total / perPage);
     let   current   = 0;
@@ -245,13 +245,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function goTo(page) {
         current = Math.max(0, Math.min(page, pages - 1));
 
-        /* Slide the track: each card takes 1/perPage of the outer width + gap */
+        /* Step = exactly the outer container width divided by cards shown */
         const outer = track.parentElement;
-        const outerStyles = getComputedStyle(outer);
-        const padLeft = parseFloat(outerStyles.paddingLeft) || 0;
-        const padRight = parseFloat(outerStyles.paddingRight) || 0;
-
-        const visibleW = outer.clientWidth - padLeft - padRight;
+        const visibleW = outer.clientWidth - 34 * 2;
         const gapPx = perPage > 1 ? 36 : 0;
         const stepW = (visibleW - gapPx * (perPage - 1)) / perPage + gapPx;
         track.style.transform = `translateX(-${current * perPage * stepW}px)`;
@@ -269,5 +265,13 @@ document.addEventListener('DOMContentLoaded', function() {
     nextBtn.addEventListener('click', () => goTo(current + 1));
 
     goTo(0); // initialise
+
+    /* clientWidth includes the 34px padding on each side added by the bleed trick,
+       so subtract it to get the true visible slot width */
+    const outer  = track.parentElement;
+    const pad    = 34 * 2; // left + right padding
+    const slotW  = outer.clientWidth - pad;
+    const cardW  = perPage === 1 ? slotW : (slotW - 36) / 2;
+    cards.forEach(c => { c.style.flex = `0 0 ${cardW}px`; c.style.width = `${cardW}px`; });
 })();
 
