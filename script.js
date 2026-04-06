@@ -107,17 +107,45 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!carousel) return;
 
     let currentAngle = 0;
-    // Smoother: 0.4deg per 16ms frame vs original 1deg per 30ms
-    let autoRotate = setInterval(() => {
-        currentAngle -= 0.4;
-        carousel.style.transform = `rotateY(${currentAngle}deg)`;
-    }, 16);
+    let rafId = null;
+    let lastTime = null;
+    const DEG_PER_SEC = 24; // degrees per second (≈ 0.4deg per 16ms)
+
+    function spinFrame(timestamp) {
+        if (lastTime !== null) {
+            const delta = (timestamp - lastTime) / 1000; // seconds
+            currentAngle -= DEG_PER_SEC * delta;
+            carousel.style.transform = `rotateY(${currentAngle}deg)`;
+        }
+        lastTime = timestamp;
+        rafId = requestAnimationFrame(spinFrame);
+    }
+
+    function startSpin() {
+        lastTime = null;
+        rafId = requestAnimationFrame(spinFrame);
+    }
+
+    function stopSpin() {
+        if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+    }
+
+    startSpin();
+
+    // Pause animation when tab is hidden to save CPU/battery
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopSpin();
+        else startSpin();
+    });
 
     items[0].classList.add('active');
 
     items.forEach((item, i) => {
         item.addEventListener('click', () => {
-            clearInterval(autoRotate);
+            stopSpin();
             const targetAngle = -(i * 90);
             currentAngle = targetAngle;
             // Smoother cubic-bezier easing
@@ -144,10 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             setTimeout(() => {
                 carousel.style.transition = '';
-                autoRotate = setInterval(() => {
-                    currentAngle -= 0.4;
-                    carousel.style.transform = `rotateY(${currentAngle}deg)`;
-                }, 16);
+                startSpin();
             }, 3000);
         });
     });

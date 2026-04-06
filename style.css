@@ -97,7 +97,7 @@ body {
     font-size: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    transition: all 0.35s ease;
+    transition: transform 0.35s ease, text-shadow 0.35s ease, letter-spacing 0.35s ease;
     text-shadow: 0 0 12px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5);
     font-family: 'HK Modular', 'Orbitron', sans-serif;
     position: relative;
@@ -449,6 +449,7 @@ button:hover {
     height: 572px;
     transform-style: preserve-3d;
     cursor: pointer;
+    will-change: transform;
 }
 
 .carousel-item {
@@ -917,13 +918,13 @@ button:hover {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-.sponsor-card:nth-child(1) { animation-delay: 0.0s; }
-.sponsor-card:nth-child(2) { animation-delay: 0.1s; }
-.sponsor-card:nth-child(3) { animation-delay: 0.2s; }
-.sponsor-card:nth-child(4) { animation-delay: 0.3s; }
-.sponsor-card:nth-child(5) { animation-delay: 0.4s; }
-.sponsor-card:nth-child(6) { animation-delay: 0.5s; }
-.sponsor-card:nth-child(7) { animation-delay: 0.6s; }
+.sponsor-card.visible:nth-child(1) { animation-delay: 0.0s; }
+.sponsor-card.visible:nth-child(2) { animation-delay: 0.1s; }
+.sponsor-card.visible:nth-child(3) { animation-delay: 0.2s; }
+.sponsor-card.visible:nth-child(4) { animation-delay: 0.3s; }
+.sponsor-card.visible:nth-child(5) { animation-delay: 0.4s; }
+.sponsor-card.visible:nth-child(6) { animation-delay: 0.5s; }
+.sponsor-card.visible:nth-child(7) { animation-delay: 0.6s; }
 
 .sponsor-card:nth-child(1):hover { border-color: rgba(255,50,50,0.6);   box-shadow: 0 0 25px rgba(255,50,50,0.3),   0 0 50px rgba(255,50,50,0.1);   transform: translateY(-4px); }
 .sponsor-card:nth-child(2):hover { border-color: rgba(0,120,212,0.6);   box-shadow: 0 0 25px rgba(0,120,212,0.3),   0 0 50px rgba(0,120,212,0.1);   transform: translateY(-4px); }
@@ -1093,8 +1094,6 @@ button:hover {
 }
 .faq-item {
     background: rgba(10,6,20,0.7) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255,45,120,0.12) !important;
