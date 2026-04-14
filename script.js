@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: "Art design",     desc: "Combine creativity and code to build visually stunning and innovative digital experiences." },
         { title: "Hello world",    desc: "Perfect for beginners — build your first project and take your first steps into hacking." },
         { title: "Hardware",       desc: "Get hands-on with physical computing, circuits, and embedded systems to build real devices." },
+        { title: "Healthcare",     desc: "Innovate at the intersection of technology and medicine to improve patient outcomes and transform the future of healthcare." },
     ];
     const carousel = document.getElementById('carousel');
     const titleEl  = document.getElementById('carousel-title');
