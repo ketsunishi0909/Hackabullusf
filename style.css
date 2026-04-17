@@ -32,10 +32,12 @@ a, button { touch-action: manipulation; }
 body {
     margin: 0;
     padding: 0;
-    background-image: url('images/arts/imagebackgroundhackabull.webp');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-image:
+        linear-gradient(to bottom, transparent 60%, #0a0008 100%),
+        url('images/arts/imagebackgroundhackabull.webp');
+    background-size: cover, cover;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
     background-color: #0a0008;
     font-family: 'Inter', sans-serif;
     color: var(--muted-text);
@@ -1717,7 +1719,14 @@ button:hover {
    ───────────────────────────────────────────────────────────────────────────── */
 @media (min-width: 1440px) and (max-width: 1869px) {
 
-  body { background-size: cover; background-position: center top; }
+  body {
+    background-image:
+        linear-gradient(to bottom, transparent 60%, #0a0008 100%),
+        url('images/arts/imagebackgroundhackabull.webp');
+    background-size: cover, cover;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+  }
 
   /* Pack stays centred — no rightward drift */
   .hero-pack {
@@ -1757,9 +1766,12 @@ button:hover {
 @media (min-width: 1870px) {
 
     body {
-  background-size: cover;
-  background-position: center -250px; /* adjust this value */
-  background-repeat: no-repeat;
+  background-image:
+      linear-gradient(to bottom, transparent 60%, #0a0008 100%),
+      url('images/arts/imagebackgroundhackabull.webp');
+  background-size: cover, cover;
+  background-position: center top, center -250px;
+  background-repeat: no-repeat, no-repeat;
 }
 
   .hero-pack {
