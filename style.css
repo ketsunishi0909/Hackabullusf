@@ -950,7 +950,11 @@ button:hover {
 
 /*SIZE CORRECTION FOR NAULT*/   
 .sponsor-card img[alt="NAULT"] {
-    transform: scale(1.4);
+    transform: scale(1.5);
+}
+
+.sponsor-card img[alt="SLATE"] {
+    transform: scale(1.2);
 }
 
 /* Marquee ticker */
@@ -1010,9 +1014,16 @@ button:hover {
 
 /*SIZE CORRECTION FOR NAULT*/
 .ticker-item img[alt="NAULT"] {
-    height: 80px;
+    height:90px;
 }
 
+.ticker-item img[alt="SLATE"] {
+    height:70px;
+}
+
+.ticker-item img[alt="Microsoft"] {
+    height:50px;
+}
 /* ── FAQ ── */
 .faq {
     padding: 60px 40px 100px;
